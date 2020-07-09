@@ -10,12 +10,10 @@ const route = new Router();
  */
 route.get('/isAfiliado', async (req, res) => {
     try {
-        json = ""
         await get(getConfigIsAfiliado(req.query.rut)).then(data =>{
-            json = data
+            res.send(data)
         })
-        const response = apiResponse(json, res.statusCode, "Operacion exitosa")
-        res.send(response)
+        
     } catch (error) {
         res.send(apiResponse({}, 500,"Error"))
     }
