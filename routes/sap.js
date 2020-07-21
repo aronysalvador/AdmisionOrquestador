@@ -4,6 +4,8 @@ const getConfigIsAfiliado = require("../Request/isAfiliado");
 const get = require("../Utils/ApiUtil/http");
 const getIsapres = require("../Request/isapres");
 const { response } = require("express");
+const getCargos = require("../Request/cargos");
+
 const route = new Router();
 
 /**
@@ -29,6 +31,19 @@ route.get("/isapres", async (req, res) => {
     res.send(result);
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de cargos desde sap
+ */
+route.get("/cargos", async (req, res) => {
+  try {
+    const result = await get(getCargos());
+    const response = apiResponse(result, res.status, "Operación Exitosa");
+    res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
   }
 });
 module.exports = route;
