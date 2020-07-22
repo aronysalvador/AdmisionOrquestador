@@ -1,10 +1,8 @@
 const getCargos = () => {
   return {
-    url: "",
+    url: "http://ci-desa-msmiddlewaresap.eastus.azurecontainer.io/api/cargos",
     headers: {
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
+      "Content-Type": "application/json; charset=utf-8",
     },
   };
 };

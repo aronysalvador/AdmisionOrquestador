@@ -1,6 +1,6 @@
 const getIsapres = () => {
   return {
-    url: `http://sfc-prod-middleware.eastus.cloudapp.azure.com:8080/api/dominios/ObtenerListadoIsapres`,
+    url: "http://ci-desa-msmiddlewaresap.eastus.azurecontainer.io/api/isapres",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
