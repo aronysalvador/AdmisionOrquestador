@@ -1,6 +1,6 @@
 const getIsapres = () => {
   return {
-    url: "http://ci-desa-msmiddlewaresap.eastus.azurecontainer.io/api/isapres",
+    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/isapres",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
