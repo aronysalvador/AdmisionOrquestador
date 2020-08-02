@@ -20,7 +20,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use("/api/sap", sap);
 app.use("/api/geo", geo);
-const port = 8080;
+const port = 80;
 app.listen(port, () => {
   console.log(`Listen on port ${port}`);
 });
