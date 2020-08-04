@@ -8,9 +8,8 @@ const route = new Router();
 route.get('/autocompletarDirecciones', async (req, res) => {
     try {
         const {direccion} = req.query
-        await get(autocompletarDirecciones(direccion)).then(data =>{
-            res.send(data)
-        })
+        const sugerencias = await get(autocompletarDirecciones(direccion))
+        res.send(sugerencias)
     } catch (error) {
         res.send(apiResponse({}, 500,"Error"))
     }
@@ -20,16 +19,11 @@ route.get('/getMapaEstatico', async (req, res) => {
     try {
         const {id,size} = req.query
         const mapa = await getStream(getStaticMapa(id,size))
-        console.log("mapa",mapa)
         res.setHeader('Content-disposition', 'attachment; filename=mapa.png');
         res.setHeader('Content-type','image/png');
         mapa.data.pipe(res);
-
     } catch (error) {
-        console.log(error)
         res.send(apiResponse({}, 500,"Error"))
     }
 })
-
-
-module.exports = route;
+module.exports = route

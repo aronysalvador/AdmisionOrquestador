@@ -3,8 +3,13 @@ const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getConfigIsAfiliado = require("../Request/isAfiliado");
 const get = require("../Utils/ApiUtil/http");
 const getIsapres = require("../Request/isapres");
-const { response } = require("express");
 const getCargos = require("../Request/cargos");
+const getAfp = require("../Request/afp");
+const getComunas = require("../Request/comunas");
+const getRegiones = require("../Request/regiones");
+const getOcupaciones = require("../Request/ocupaciones");
+
+
 
 const route = new Router();
 
@@ -46,4 +51,57 @@ route.get("/cargos", async (req, res) => {
     res.send(apiResponse([], 500, "Error"));
   }
 });
+
+/**
+ * Recibe la lista de afp desde sap
+ */
+route.get("/afp", async (req, res) => {
+  try {
+    const result = await get(getAfp());
+    const response = apiResponse(result, res.status, "Operación Exitosa");
+    res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de comunas desde sap
+ */
+route.get("/comunas", async (req, res) => {
+  try {
+    const result = await get(getComunas());
+    const response = apiResponse(result, res.status, "Operación Exitosa");
+    res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de regiones desde sap
+ */
+route.get("/regiones", async (req, res) => {
+  try {
+    const result = await get(getRegiones());
+    const response = apiResponse(result, res.status, "Operación Exitosa");
+    res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de ocupaciones desde sap
+ */
+route.get("/ocupaciones", async (req, res) => {
+  try {
+    const result = await get(getOcupaciones());
+    const response = apiResponse(result, res.status, "Operación Exitosa");
+    res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
 module.exports = route;
