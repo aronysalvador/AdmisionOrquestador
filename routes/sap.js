@@ -8,6 +8,10 @@ const getAfp = require("../Request/afp");
 const getComunas = require("../Request/comunas");
 const getRegiones = require("../Request/regiones");
 const getOcupaciones = require("../Request/ocupaciones");
+const getTipoContrato = require("../Request/tipoContrato");
+const getTipoRemuneracion = require("../Request/tipoRemuneracion");
+const getJornadaTrabajo = require("../Request/jornadaTrabajo");
+const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 
 
 
@@ -104,4 +108,40 @@ route.get("/ocupaciones", async (req, res) => {
   }
 });
 
+
+route.get("/tipoContrato", async (req, res) => {
+  try {
+    const response = await get(getTipoContrato());
+    return res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/tipoRemuneracion", async (req, res) => {
+  try {
+    const response = await get(getTipoRemuneracion());
+    return res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/jornadaTrabajo", async (req, res) => {
+  try {
+    const response = await get(getJornadaTrabajo());
+    return res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/categoriaOcupacional", async (req, res) => {
+  try {
+    const response = await get(getCategoriaOcupacional());
+    return res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
 module.exports = route;
