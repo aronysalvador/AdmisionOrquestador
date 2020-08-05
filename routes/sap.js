@@ -7,6 +7,8 @@ const { response } = require("express");
 const getCargos = require("../Request/cargos");
 const getTipoContrato = require("../Request/tipoContrato");
 const getTipoRemuneracion = require("../Request/tipoRemuneracion");
+const getJornadaTrabajo = require("../Request/jornadaTrabajo");
+const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 
 const route = new Router();
 
@@ -61,6 +63,24 @@ route.get("/tipoContrato", async (req, res) => {
 route.get("/tipoRemuneracion", async (req, res) => {
   try {
     const response = await get(getTipoRemuneracion());
+    return res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/jornadaTrabajo", async (req, res) => {
+  try {
+    const response = await get(getJornadaTrabajo());
+    return res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/categoriaOcupacional", async (req, res) => {
+  try {
+    const response = await get(getCategoriaOcupacional());
     return res.send(response);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
