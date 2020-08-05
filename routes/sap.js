@@ -5,7 +5,7 @@ const get = require("../Utils/ApiUtil/http");
 const getIsapres = require("../Request/isapres");
 const { response } = require("express");
 const getCargos = require("../Request/cargos");
-
+const getTipoContrato = require("../Request/tipoContrato");
 const route = new Router();
 
 /**
@@ -42,6 +42,15 @@ route.get("/cargos", async (req, res) => {
     const result = await get(getCargos());
     const response = apiResponse(result, res.status, "Operación Exitosa");
     res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/tipoContrato", async (req, res) => {
+  try {
+    const response = await get(getTipoContrato());
+    return res.send(response);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
   }
