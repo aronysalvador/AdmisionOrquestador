@@ -62,8 +62,7 @@ route.get("/cargos", async (req, res) => {
 route.get("/afp", async (req, res) => {
   try {
     const result = await get(getAfp());
-    const response = apiResponse(result, res.status, "Operación Exitosa");
-    res.send(response);
+    res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
   }
@@ -75,8 +74,7 @@ route.get("/afp", async (req, res) => {
 route.get("/comunas", async (req, res) => {
   try {
     const result = await get(getComunas());
-    const response = apiResponse(result, res.status, "Operación Exitosa");
-    res.send(response);
+    res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
   }
@@ -88,8 +86,7 @@ route.get("/comunas", async (req, res) => {
 route.get("/regiones", async (req, res) => {
   try {
     const result = await get(getRegiones());
-    const response = apiResponse(result, res.status, "Operación Exitosa");
-    res.send(response);
+    res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
   }
@@ -101,8 +98,7 @@ route.get("/regiones", async (req, res) => {
 route.get("/ocupaciones", async (req, res) => {
   try {
     const result = await get(getOcupaciones());
-    const response = apiResponse(result, res.status, "Operación Exitosa");
-    res.send(response);
+    res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
   }
