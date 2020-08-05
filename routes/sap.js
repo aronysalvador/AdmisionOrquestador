@@ -6,6 +6,8 @@ const getIsapres = require("../Request/isapres");
 const { response } = require("express");
 const getCargos = require("../Request/cargos");
 const getTipoContrato = require("../Request/tipoContrato");
+const getTipoRemuneracion = require("../Request/tipoRemuneracion");
+
 const route = new Router();
 
 /**
@@ -50,6 +52,15 @@ route.get("/cargos", async (req, res) => {
 route.get("/tipoContrato", async (req, res) => {
   try {
     const response = await get(getTipoContrato());
+    return res.send(response);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/tipoRemuneracion", async (req, res) => {
+  try {
+    const response = await get(getTipoRemuneracion());
     return res.send(response);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
