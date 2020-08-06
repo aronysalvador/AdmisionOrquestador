@@ -143,7 +143,7 @@ route.get("/categoriaOcupacional", async (req, res) => {
   }
 });
 
-route.get("/razonSocial", async (req, res) => {
+route.get("/sucursales", async (req, res) => {
   try {
     const response = await get(getRazonSocial(req.query.rutEmpresa));
     return res.send(response);
