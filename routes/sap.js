@@ -12,6 +12,8 @@ const getTipoContrato = require("../Request/tipoContrato");
 const getTipoRemuneracion = require("../Request/tipoRemuneracion");
 const getJornadaTrabajo = require("../Request/jornadaTrabajo");
 const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
+const getRazonSocial = require("../Request/razonSocial");
+
 
 
 
@@ -140,4 +142,15 @@ route.get("/categoriaOcupacional", async (req, res) => {
     res.send(apiResponse([], 500, "Error"));
   }
 });
+
+route.get("/razonSocial", async (req, res) => {
+  try {
+    const response = await get(getRazonSocial(req.query.rutEmpresa));
+    return res.send(response);
+  } catch (error) {
+    console.log(error)
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
 module.exports = route;
