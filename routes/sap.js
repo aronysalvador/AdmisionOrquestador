@@ -3,7 +3,6 @@ const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getConfigIsAfiliado = require("../Request/isAfiliado");
 const get = require("../Utils/ApiUtil/http");
 const getIsapres = require("../Request/isapres");
-const getCargos = require("../Request/cargos");
 const getAfp = require("../Request/afp");
 const getComunas = require("../Request/comunas");
 const getRegiones = require("../Request/regiones");
@@ -13,9 +12,8 @@ const getTipoRemuneracion = require("../Request/tipoRemuneracion");
 const getJornadaTrabajo = require("../Request/jornadaTrabajo");
 const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 const getRazonSocial = require("../Request/razonSocial");
-
-
-
+const getProfesiones = require("../Request/profesiones");
+const getAlertas = require("../Request/alertas");
 
 const route = new Router();
 
@@ -42,19 +40,6 @@ route.get("/isapres", async (req, res) => {
     res.send(result);
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
-  }
-});
-
-/**
- * Recibe la lista de cargos desde sap
- */
-route.get("/cargos", async (req, res) => {
-  try {
-    const result = await get(getCargos());
-    const response = apiResponse(result, res.status, "Operación Exitosa");
-    res.send(response);
-  } catch (error) {
-    res.send(apiResponse([], 500, "Error"));
   }
 });
 
@@ -106,7 +91,6 @@ route.get("/ocupaciones", async (req, res) => {
   }
 });
 
-
 route.get("/tipoContrato", async (req, res) => {
   try {
     const response = await get(getTipoContrato());
@@ -148,7 +132,31 @@ route.get("/sucursales", async (req, res) => {
     const response = await get(getRazonSocial(req.query.rutEmpresa));
     return res.send(response);
   } catch (error) {
-    console.log(error)
+    console.log(error);
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de Profesiones desde sap
+ */
+route.get("/profesiones", async (req, res) => {
+  try {
+    const result = await get(getProfesiones());
+    res.send(result);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de Alertas desde sap
+ */
+route.get("/alertas", async (req, res) => {
+  try {
+    const result = await get(getAlertas());
+    res.send(result);
+  } catch (error) {
     res.send(apiResponse([], 500, "Error"));
   }
 });
