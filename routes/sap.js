@@ -14,6 +14,7 @@ const getJornadaTrabajo = require("../Request/jornadaTrabajo");
 const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 const getRazonSocial = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
+const getAlertas = require("../Request/alertas");
 
 const route = new Router();
 
@@ -156,6 +157,18 @@ route.get("/sucursales", async (req, res) => {
 route.get("/profesiones", async (req, res) => {
   try {
     const result = await get(getProfesiones());
+    res.send(result);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de Alertas desde sap
+ */
+route.get("/alertas", async (req, res) => {
+  try {
+    const result = await get(getAlertas());
     res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
