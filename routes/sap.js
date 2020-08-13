@@ -13,9 +13,7 @@ const getTipoRemuneracion = require("../Request/tipoRemuneracion");
 const getJornadaTrabajo = require("../Request/jornadaTrabajo");
 const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 const getRazonSocial = require("../Request/razonSocial");
-
-
-
+const getProfesiones = require("../Request/profesiones");
 
 const route = new Router();
 
@@ -106,7 +104,6 @@ route.get("/ocupaciones", async (req, res) => {
   }
 });
 
-
 route.get("/tipoContrato", async (req, res) => {
   try {
     const response = await get(getTipoContrato());
@@ -148,7 +145,19 @@ route.get("/sucursales", async (req, res) => {
     const response = await get(getRazonSocial(req.query.rutEmpresa));
     return res.send(response);
   } catch (error) {
-    console.log(error)
+    console.log(error);
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe la lista de Profesiones desde sap
+ */
+route.get("/profesiones", async (req, res) => {
+  try {
+    const result = await get(getProfesiones());
+    res.send(result);
+  } catch (error) {
     res.send(apiResponse([], 500, "Error"));
   }
 });
