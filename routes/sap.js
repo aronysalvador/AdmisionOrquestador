@@ -15,7 +15,7 @@ const getRazonSocial = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
 const getAlertas = require("../Request/alertas");
 
-let result3 = []
+let isapresOrquestador = []
 
 const route = new Router();
 
@@ -38,42 +38,22 @@ route.get("/isAfiliado", async (req, res) => {
  */
 route.get("/isapres", async (req, res) => {
   try {
-    let result1 = await get(getIsapresMiddleware());
-    let result2 = await get(getIsapresDb());
-    
+    let isapresFromMiddleware = await get(getIsapresMiddleware());
+    let isapresFromBd = await get(getIsapresDb());
+   
+    isapresFromMiddleware.content[0].forEach(element => {
 
-    let arrayIsapres = ['2000454950','2000132503']
+      let isapresDiccionario = isapresFromBd.content[0].find(element2 => element.id == element2.id)
 
-
-    // result1.content[0].forEach(element => {    
-
-    //   arrayIsapres.forEach(id =>{
-    //     if(element.id == id){
-    //       let text1 = result2.content[0].find(element2 => element2.id == id)
-    //       console.log(text1)
-    //       result3.push(text1)
-    //     }
-
-    //   })
-      
-    // });
-
-    result1.content[0].forEach(element => {
-
-      let text1 = result2.content[0].find(element2 => element.id == element2.id)
-
-      if(text1 !== undefined){
-        result3.push(text1)
+      if(isapresDiccionario !== undefined){
+        isapresOrquestador.push(text1)
       }else{
-        result3.push(element)
+        isapresOrquestador.push(element)
       }
 
     });
 
-
-
-
-    res.send(result3);
+    res.send(isapresOrquestador);
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
   }
