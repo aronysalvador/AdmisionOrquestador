@@ -10,7 +10,7 @@ const getIsapresMiddleware = () => {
 
 const getIsapresDb = () => {
   return {
-    url: "http://localhost:3001/api/isapres",
+    url: "https://wa-desa-bd.azurewebsites.net/api/isapres",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
