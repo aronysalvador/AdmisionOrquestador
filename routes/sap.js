@@ -46,7 +46,7 @@ route.get("/isapres", async (req, res) => {
       let isapresDiccionario = isapresFromBd.content[0].find(element2 => element.id == element2.id)
 
       if(isapresDiccionario !== undefined){
-        isapresOrquestador.push(text1)
+        isapresOrquestador.push(isapresDiccionario)
       }else{
         isapresOrquestador.push(element)
       }
