@@ -12,6 +12,7 @@ const getTipoContrato = require("../Request/tipoContrato");
 const getTipoRemuneracion = require("../Request/tipoRemuneracion");
 const getJornadaTrabajo = require("../Request/jornadaTrabajo");
 const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
+const getSucursales = require("../Request/sucursales");
 const getRazonSocial = require("../Request/razonSocial");
 
 
@@ -145,7 +146,17 @@ route.get("/categoriaOcupacional", async (req, res) => {
 
 route.get("/sucursales", async (req, res) => {
   try {
-    const response = await get(getRazonSocial(req.query.rutEmpresa));
+    const response = await get(getSucursales(req.query.rutEmpresa));
+    return res.send(response);
+  } catch (error) {
+    console.log(error)
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/razonSocialByName", async (req, res) => {
+  try {
+    const response = await get(getRazonSocial(req.query.companyName));
     return res.send(response);
   } catch (error) {
     console.log(error)
