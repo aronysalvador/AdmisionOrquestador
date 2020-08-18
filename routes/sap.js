@@ -53,8 +53,8 @@ route.get("/isapres", async (req, res) => {
       }
 
     });
-
-    res.send(isapresOrquestador);
+    const response = apiResponse(isapresOrquestador, res.statusCode, "Operacion exitosa")
+    res.send(response);
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
   }
