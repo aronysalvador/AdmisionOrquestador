@@ -1,4 +1,5 @@
-const getIsapres = () => {
+
+const getIsapresMiddleware = () => {
   return {
     url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/isapres",
     headers: {
@@ -6,4 +7,14 @@ const getIsapres = () => {
     },
   };
 };
-module.exports = getIsapres;
+
+const getIsapresDb = () => {
+  return {
+    url: "http://localhost:3001/api/isapres",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  };
+};
+
+module.exports = {getIsapresDb, getIsapresMiddleware};

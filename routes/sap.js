@@ -2,7 +2,7 @@ const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getConfigIsAfiliado = require("../Request/isAfiliado");
 const get = require("../Utils/ApiUtil/http");
-const getIsapres = require("../Request/isapres");
+const {getIsapresDb, getIsapresMiddleware} = require("../Request/isapres");
 const getAfp = require("../Request/afp");
 const getComunas = require("../Request/comunas");
 const getRegiones = require("../Request/regiones");
@@ -14,6 +14,8 @@ const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 const getRazonSocial = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
 const getAlertas = require("../Request/alertas");
+
+let result3 = []
 
 const route = new Router();
 
@@ -36,8 +38,42 @@ route.get("/isAfiliado", async (req, res) => {
  */
 route.get("/isapres", async (req, res) => {
   try {
-    const result = await get(getIsapres());
-    res.send(result);
+    let result1 = await get(getIsapresMiddleware());
+    let result2 = await get(getIsapresDb());
+    
+
+    let arrayIsapres = ['2000454950','2000132503']
+
+
+    // result1.content[0].forEach(element => {    
+
+    //   arrayIsapres.forEach(id =>{
+    //     if(element.id == id){
+    //       let text1 = result2.content[0].find(element2 => element2.id == id)
+    //       console.log(text1)
+    //       result3.push(text1)
+    //     }
+
+    //   })
+      
+    // });
+
+    result1.content[0].forEach(element => {
+
+      let text1 = result2.content[0].find(element2 => element.id == element2.id)
+
+      if(text1 !== undefined){
+        result3.push(text1)
+      }else{
+        result3.push(element)
+      }
+
+    });
+
+
+
+
+    res.send(result3);
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
   }
