@@ -2,7 +2,7 @@ const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getConfigIsAfiliado = require("../Request/isAfiliado");
 const get = require("../Utils/ApiUtil/http");
-const getIsapres = require("../Request/isapres");
+const {getIsapresDb, getIsapresMiddleware} = require("../Request/isapres");
 const getAfp = require("../Request/afp");
 const getComunas = require("../Request/comunas");
 const getRegiones = require("../Request/regiones");
@@ -15,6 +15,8 @@ const getSucursales = require("../Request/sucursales");
 const getRazonSocial = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
 const getAlertas = require("../Request/alertas");
+
+let isapresOrquestador = []
 
 const route = new Router();
 
@@ -37,8 +39,22 @@ route.get("/isAfiliado", async (req, res) => {
  */
 route.get("/isapres", async (req, res) => {
   try {
-    const result = await get(getIsapres());
-    res.send(result);
+    let isapresFromMiddleware = await get(getIsapresMiddleware());
+    let isapresFromBd = await get(getIsapresDb());
+   
+    isapresFromMiddleware.content[0].forEach(element => {
+
+      let isapresDiccionario = isapresFromBd.content[0].find(element2 => element.id == element2.id)
+
+      if(isapresDiccionario !== undefined){
+        isapresOrquestador.push(isapresDiccionario)
+      }else{
+        isapresOrquestador.push(element)
+      }
+
+    });
+
+    res.send(isapresOrquestador);
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
   }
