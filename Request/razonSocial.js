@@ -1,6 +1,6 @@
-const getRazonSocial = (rutEmpresa) => {
+const getRazonSocial = (companyName) => {
   return {
-    url: `https://wa-desa-msmiddlewaresap.azurewebsites.net/api/sucursales?rutEmpresa=${rutEmpresa}`,
+    url: `https://wa-desa-bd.azurewebsites.net/api/razonSocial?companyName=${companyName}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
