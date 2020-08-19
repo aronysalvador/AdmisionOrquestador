@@ -15,6 +15,8 @@ const getSucursales = require("../Request/sucursales");
 const getRazonSocial = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
 const getAlertas = require("../Request/alertas");
+const getCentros = require("../Request/centros");
+
 
 let isapresOrquestador = []
 
@@ -182,6 +184,15 @@ route.get("/profesiones", async (req, res) => {
 route.get("/alertas", async (req, res) => {
   try {
     const result = await get(getAlertas());
+    res.send(result);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/centros", async (req, res) => {
+  try {
+    const result = await get(getCentros());
     res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
