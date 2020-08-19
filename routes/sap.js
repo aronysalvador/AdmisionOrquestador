@@ -18,7 +18,7 @@ const getAlertas = require("../Request/alertas");
 const getCentros = require("../Request/centros");
 
 
-let isapresOrquestador = []
+
 
 const route = new Router();
 
@@ -41,6 +41,7 @@ route.get("/isAfiliado", async (req, res) => {
  */
 route.get("/isapres", async (req, res) => {
   try {
+    let isapresOrquestador = []
     let isapresFromMiddleware = await get(getIsapresMiddleware());
     let isapresFromBd = await get(getIsapresDb());
    
