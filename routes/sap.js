@@ -13,7 +13,7 @@ const getTipoRemuneracion = require("../Request/tipoRemuneracion");
 const getJornadaTrabajo = require("../Request/jornadaTrabajo");
 const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 const getSucursales = require("../Request/sucursales");
-const getRazonSocial = require("../Request/razonSocial");
+const {getRazonSocial, getRazonSocialByRut} = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
 const getAlertas = require("../Request/alertas");
 const getCentros = require("../Request/centros");
@@ -162,6 +162,16 @@ route.get("/sucursales", async (req, res) => {
 route.get("/razonSocialByName", async (req, res) => {
   try {
     const response = await get(getRazonSocial(req.query.companyName));
+    return res.send(response);
+  } catch (error) {
+    console.log(error);
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/razonSocialByRut", async (req, res) => {
+  try {
+    const response = await get(getRazonSocialByRut(req.query.rut));
     return res.send(response);
   } catch (error) {
     console.log(error);
