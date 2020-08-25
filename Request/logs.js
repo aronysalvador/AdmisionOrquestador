@@ -15,4 +15,13 @@ const postEndLog = () => {
     };
   };
 
-  module.exports = { postLog, postEndLog };
+  const handleLog = () => {
+    return {
+      url: "http://localhost:3001/api/logs",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    };
+  };
+
+  module.exports = { postLog, postEndLog, handleLog };
