@@ -2,6 +2,7 @@ const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getConfigIsAfiliado = require("../Request/isAfiliado");
 const get = require("../Utils/ApiUtil/http");
+const post = require("../Utils/ApiUtil/httpPost");
 const {getIsapresDb, getIsapresMiddleware} = require("../Request/isapres");
 const getAfp = require("../Request/afp");
 const getComunas = require("../Request/comunas");
@@ -16,9 +17,10 @@ const {getRazonSocial, getRazonSocialByRut} = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
 const getAlertas = require("../Request/alertas");
 const getCentros = require("../Request/centros");
+const {postCentrosUser , getCentrosUser} = require("../Request/centrosUser");
 
 
-let isapresOrquestador = []
+
 
 const route = new Router();
 
@@ -41,6 +43,7 @@ route.get("/isAfiliado", async (req, res) => {
  */
 route.get("/isapres", async (req, res) => {
   try {
+    let isapresOrquestador = []
     let isapresFromMiddleware = await get(getIsapresMiddleware());
     let isapresFromBd = await get(getIsapresDb());
    
@@ -203,6 +206,25 @@ route.get("/alertas", async (req, res) => {
 route.get("/centros", async (req, res) => {
   try {
     const result = await get(getCentros());
+    res.send(result);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+
+route.post("/centrosUser", async (req, res) => {
+  try {
+    const result = await post(postCentrosUser(), req.body);
+    res.send(result);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+route.get("/centrosUser", async (req, res) => {
+  try {
+    const result = await get(getCentrosUser(req.query.email));
     res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
