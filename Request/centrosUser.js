@@ -1,6 +1,6 @@
 const postCentrosUser = () => {
     return {
-      url: "https://wa-desa-bd.azurewebsites.net/api/centros/",
+      url: "https://wa-desa-bd.azurewebsites.net/api/centros/getAll",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
