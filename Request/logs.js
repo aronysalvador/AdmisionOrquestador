@@ -17,7 +17,7 @@
 
   const handleLog = () => {
     return {
-      url: "http://localhost:3001/api/logs",
+      url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/logs",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
