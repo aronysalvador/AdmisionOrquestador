@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const sap = require("./routes/sap");
 const geo = require("./routes/geolocalizacion");
 const bd = require("./routes/bd");
+const log = require("./routes/logs");
 var cors = require("cors");
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(cors());
 app.use("/api/sap", sap);
 app.use("/api/geo", geo);
 app.use("/api/bd", bd);
+app.use("/api/logs", log);
 const port = 80;
 app.listen(port, () => {
   console.log(`Listen on port ${port}`);
