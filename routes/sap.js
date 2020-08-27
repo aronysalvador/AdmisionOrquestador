@@ -2,7 +2,7 @@ const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const get = require("../Utils/ApiUtil/http");
 const post = require("../Utils/ApiUtil/httpPost");
-const {getIsapresDb, getIsapresMiddleware} = require("../Request/isapres");
+const { getIsapresDb, getIsapresMiddleware } = require("../Request/isapres");
 const getAfp = require("../Request/afp");
 const getComunas = require("../Request/comunas");
 const getRegiones = require("../Request/regiones");
@@ -12,14 +12,15 @@ const getTipoRemuneracion = require("../Request/tipoRemuneracion");
 const getJornadaTrabajo = require("../Request/jornadaTrabajo");
 const getCategoriaOcupacional = require("../Request/categoriaOcupacional");
 const getSucursales = require("../Request/sucursales");
-const {getRazonSocial, getRazonSocialByRut} = require("../Request/razonSocial");
+const {
+  getRazonSocial,
+  getRazonSocialByRut,
+} = require("../Request/razonSocial");
 const getProfesiones = require("../Request/profesiones");
 const getAlertas = require("../Request/alertas");
 const getCentros = require("../Request/centros");
-const {postCentrosUser , getCentrosUser} = require("../Request/centrosUser");
-
-
-
+const { postCentrosUser, getCentrosUser } = require("../Request/centrosUser");
+const integracionSAP = require("../Request/integracionSAP");
 
 const route = new Router();
 
@@ -28,22 +29,26 @@ const route = new Router();
  */
 route.get("/isapres", async (req, res) => {
   try {
-    let isapresOrquestador = []
+    let isapresOrquestador = [];
     let isapresFromMiddleware = await get(getIsapresMiddleware());
     let isapresFromBd = await get(getIsapresDb());
-   
-    isapresFromMiddleware.content[0].forEach(element => {
 
-      let isapresDiccionario = isapresFromBd.content[0].find(element2 => element.id == element2.id)
+    isapresFromMiddleware.content[0].forEach((element) => {
+      let isapresDiccionario = isapresFromBd.content[0].find(
+        (element2) => element.id == element2.id
+      );
 
-      if(isapresDiccionario !== undefined){
-        isapresOrquestador.push(isapresDiccionario)
-      }else{
-        isapresOrquestador.push(element)
+      if (isapresDiccionario !== undefined) {
+        isapresOrquestador.push(isapresDiccionario);
+      } else {
+        isapresOrquestador.push(element);
       }
-
     });
-    const response = apiResponse(isapresOrquestador, res.statusCode, "Operacion exitosa")
+    const response = apiResponse(
+      isapresOrquestador,
+      res.statusCode,
+      "Operacion exitosa"
+    );
     res.send(response);
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
@@ -139,7 +144,7 @@ route.get("/sucursales", async (req, res) => {
     const response = await get(getSucursales(req.query.rutEmpresa));
     return res.send(response);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.send(apiResponse([], 500, "Error"));
   }
 });
@@ -197,7 +202,6 @@ route.get("/centros", async (req, res) => {
   }
 });
 
-
 route.post("/centrosUser", async (req, res) => {
   try {
     const result = await post(postCentrosUser(), req.body);
@@ -210,6 +214,19 @@ route.post("/centrosUser", async (req, res) => {
 route.get("/centrosUser", async (req, res) => {
   try {
     const result = await get(getCentrosUser(req.query.email));
+    res.send(result);
+  } catch (error) {
+    res.send(apiResponse([], 500, "Error"));
+  }
+});
+
+/**
+ * Recibe toda la data de la admisión y se comunica con los sevicios
+ * que insertan la data en SAP
+ */
+route.post("/integracionsap", async (req, res) => {
+  try {
+    const result = await post(integracionSAP(), req.body);
     res.send(result);
   } catch (error) {
     res.send(apiResponse([], 500, "Error"));
