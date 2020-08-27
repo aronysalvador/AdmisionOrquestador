@@ -11,6 +11,7 @@ const geo = require("./routes/geolocalizacion");
 const bd = require("./routes/bd");
 const log = require("./routes/logs");
 const paciente = require("./routes/paciente");
+const admisionista = require("./routes/admisionista");
 var cors = require("cors");
 
 const app = express();
@@ -26,6 +27,8 @@ app.use("/api/geo", geo);
 app.use("/api/bd", bd);
 app.use("/api/logs", log);
 app.use("/api/paciente", paciente);
+app.use("/api/admisionista", admisionista);
+
 const port = 80;
 app.listen(port, () => {
   console.log(`Listen on port ${port}`);
