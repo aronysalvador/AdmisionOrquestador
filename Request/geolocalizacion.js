@@ -16,4 +16,16 @@ const getStaticMapa = (id,size) => {
   }
 }
 
-module.exports = {autocompletarDirecciones,getStaticMapa}
+const getLatLng= (id) => {
+  return {
+    url: `https://wa-desa-geolocalizacion.azurewebsites.net/api/googleMaps/getLatLng?id=${id}`,
+  }
+}
+
+const getDireccion= (lat,lng) => {
+  return {
+    url: `https://wa-desa-geolocalizacion.azurewebsites.net/api/googleMaps/getDireccion?lat=${lat}&lng=${lng}`,
+  }
+}
+
+module.exports = {autocompletarDirecciones,getStaticMapa, getLatLng, getDireccion}
