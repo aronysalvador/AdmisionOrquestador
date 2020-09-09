@@ -1,7 +1,6 @@
 const getConfigTipoRemuneracion = () => {
   return {
-    url:
-      "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/tipoRemuneracion",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/tipoRemuneracion`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

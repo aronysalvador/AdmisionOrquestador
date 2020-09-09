@@ -15,14 +15,14 @@
 //     };
 //   };
 
-  const handleLog = () => {
-    return {
-      url: "https://wa-desa-bd.azurewebsites.net/api/logs",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    };
+const handleLog = () => {
+  return {
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/logs`,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
   };
+};
 
-  // module.exports = { postLog, postEndLog, handleLog };
-  module.exports = { handleLog };
+// module.exports = { postLog, postEndLog, handleLog };
+module.exports = { handleLog };

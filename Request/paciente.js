@@ -1,19 +1,19 @@
 const getConfigValidate = (rutEmpresa, BpSucursal, rutPaciente) => {
   return {
-    url: `https://wa-desa-msmiddlewaresap.azurewebsites.net/api/patient/validate?rutEmpresa=${rutEmpresa}&BpSucursal=${BpSucursal}&rutPaciente=${rutPaciente}`,
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/patient/validate?rutEmpresa=${rutEmpresa}&BpSucursal=${BpSucursal}&rutPaciente=${rutPaciente}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
   };
 };
 
-const getConfigGetPaciente= (rut) => {
+const getConfigGetPaciente = (rut) => {
   return {
-    url: `https://wa-desa-msmiddlewaresap.azurewebsites.net/api/patient/getPaciente?rut=${rut}`,
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/patient/getPaciente?rut=${rut}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
   };
 };
 
-module.exports = {getConfigValidate,getConfigGetPaciente};
+module.exports = { getConfigValidate, getConfigGetPaciente };

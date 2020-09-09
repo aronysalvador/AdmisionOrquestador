@@ -1,6 +1,6 @@
 const getComunas = () => {
   return {
-    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/comunas/",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/comunas/`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

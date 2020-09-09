@@ -1,6 +1,6 @@
 const getConfigTipoContrato = () => {
   return {
-    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/tipoContrato",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/tipoContrato`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

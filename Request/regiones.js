@@ -1,6 +1,6 @@
 const getRegiones = () => {
   return {
-    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/regiones/",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/regiones/`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
