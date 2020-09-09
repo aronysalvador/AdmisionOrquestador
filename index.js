@@ -18,7 +18,7 @@ var cors = require("cors");
 const app = express();
 /**
  * En esta sección se realiza la carga de las funciones middleware de express, los middleware
- * pueden custom o build-in en express
+ * pueden custom o build-in en express añade comentario
  */
 app.use(express.json());
 app.use(morgan("dev"));
