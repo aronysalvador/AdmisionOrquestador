@@ -1,6 +1,6 @@
 const autocompletarDirecciones = (direccion) => {
   return {
-    url: `https://wa-desa-geolocalizacion.azurewebsites.net/api/googleMaps/autocompletar?direccion=${direccion}`,
+    url: `${process.env.URL_MICROSERVICIO_GEOLOCALIZACION}/api/googleMaps/autocompletar?direccion=${direccion}`,
     headers: {
       headers: {
         "Content-Type": "application/json",
