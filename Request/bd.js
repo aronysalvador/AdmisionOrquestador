@@ -1,9 +1,9 @@
 const getUpdateAdmisiones = () => {
-    return {
-      url: "https://wa-desa-bd.azurewebsites.net/api/sap/updatestate",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    };
+  return {
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/sap/updatestate`,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
   };
-  module.exports = {getUpdateAdmisiones};
+};
+module.exports = { getUpdateAdmisiones };

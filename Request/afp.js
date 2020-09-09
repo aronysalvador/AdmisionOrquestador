@@ -1,6 +1,6 @@
 const getAfp = () => {
   return {
-    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/afp/",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/afp/`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

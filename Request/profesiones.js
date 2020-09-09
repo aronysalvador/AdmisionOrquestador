@@ -1,6 +1,6 @@
 const getProfesiones = () => {
   return {
-    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/profesiones",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/profesiones`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

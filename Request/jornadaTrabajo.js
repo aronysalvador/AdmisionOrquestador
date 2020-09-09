@@ -1,6 +1,6 @@
 const getConfigJornadaTrabajo = () => {
   return {
-    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/jornadaTrabajo",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/jornadaTrabajo`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

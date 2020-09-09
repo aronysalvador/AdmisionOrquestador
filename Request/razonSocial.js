@@ -1,6 +1,6 @@
 const getRazonSocial = (companyName) => {
   return {
-    url: `https://wa-desa-bd.azurewebsites.net/api/razonSocial/getByName?companyName=${companyName}`,
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/razonSocial/getByName?companyName=${companyName}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
@@ -9,11 +9,11 @@ const getRazonSocial = (companyName) => {
 
 const getRazonSocialByRut = (rut) => {
   return {
-    url: `https://wa-desa-bd.azurewebsites.net/api/razonSocial/getByRut?rut=${rut}`,
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/razonSocial/getByRut?rut=${rut}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
   };
 };
 
-module.exports = {getRazonSocial, getRazonSocialByRut};
+module.exports = { getRazonSocial, getRazonSocialByRut };

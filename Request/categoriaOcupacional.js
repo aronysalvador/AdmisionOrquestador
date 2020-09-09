@@ -1,7 +1,6 @@
 const getConfigCategoriaOcupacional = () => {
   return {
-    url:
-      "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/categoriaOcupacional",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/categoriaOcupacional`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

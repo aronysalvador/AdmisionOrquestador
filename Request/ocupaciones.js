@@ -1,6 +1,6 @@
 const getOcupaciones = () => {
   return {
-    url: "https://wa-desa-msmiddlewaresap.azurewebsites.net/api/ocupaciones/",
+    url: `${process.env.URL_MICROSERVICIO_MIDDLEWARE_SAP}/api/ocupaciones/`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

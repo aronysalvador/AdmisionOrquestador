@@ -1,6 +1,6 @@
 const getAliasSapByEmail = (email) => {
   return {
-    url: `https://wa-desa-bd.azurewebsites.net/api/usuarioSAP/getAliasSAP?email=${email}`,
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/usuarioSAP/getAliasSAP?email=${email}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
