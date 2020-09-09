@@ -16,19 +16,19 @@ variables:
   - name: ContainerRegistryName
     value: "crdesacontainer"
   - name: DockerRepository
-    value: "desa/admision_digital/achs-ms-bd"
+    value: "desa/admision_digital/achs-ms-orquestador"
   - name: ImageTag
     value: "_$(Build.BuildId)"
   - name: appNameSTG
-    value: "wa-stg-admdig-bd"
+    value: "wa-stg-admdig-msorquestador"
   - name: azureSubcritionSTG
     value: "ASC-STG-ADMISIONDIGITAL"
   - name: appNameQA
-    value: "wa-qa-admisiondigital-bd"
+    value: "wa-qa-admisiondigital-msorquestador"
   - name: azureSubcritionQA
     value: "ASC-QA-ADMISIONDIGITAL"
   - name: appNameDESA
-    value: "wa-desa-admdig-bd"
+    value: "wa-desa-admdig-msorquestador"
   - name: azureSubcritionDESA
     value: "ASC-DESA-ADMISIONDIGITAL"
 
