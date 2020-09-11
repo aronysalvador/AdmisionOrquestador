@@ -1,6 +1,6 @@
 const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
-const {getConfigValidate, getConfigGetPaciente} = require("../Request/paciente");
+const {getConfigValidate, getConfigGetPaciente, getPacienteValido} = require("../Request/paciente");
 const get = require("../Utils/ApiUtil/http");
 
 const route = new Router();
@@ -8,9 +8,15 @@ const route = new Router();
 
 route.get("/getPaciente", async (req, res) => {
   try {
-    await get(getConfigGetPaciente(req.query.rut)).then((data) => {
+
+    //data.content.response.BpCreado = await get(getPacienteValido(req.query.rut.toUpperCase()));
+    let rutFormateado = req.query.rut.replace(/\./g,'').toUpperCase();
+    const  valorBP = await get(getPacienteValido(rutFormateado));
+    await get(getConfigGetPaciente(rutFormateado)).then((data) => {
+      data.content.response.BpCreado = valorBP.content[0];
       res.send(data);
     });
+   
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
   }
