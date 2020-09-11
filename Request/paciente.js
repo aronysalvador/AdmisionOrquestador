@@ -16,8 +16,6 @@ const getConfigGetPaciente = (rut) => {
   };
 };
 
-
-
 const getPacienteValido = (rut) => {
   return {
     url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/paciente/?rut=${rut}`,
