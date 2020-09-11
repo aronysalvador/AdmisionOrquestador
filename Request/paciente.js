@@ -16,4 +16,15 @@ const getConfigGetPaciente = (rut) => {
   };
 };
 
-module.exports = { getConfigValidate, getConfigGetPaciente };
+
+
+const getPacienteValido = (rut) => {
+  return {
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/paciente/?rut=${rut}`,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  };
+};
+
+module.exports = { getConfigValidate, getConfigGetPaciente, getPacienteValido };
