@@ -93,7 +93,7 @@ stages:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionDESA)
-              appName: $(appNameDESA)
+              appName: $(appNameDESAOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
   - stage: Deploy_QA
     displayName: "Building Deploy QA"
@@ -134,7 +134,7 @@ stages:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionQA)
-              appName: $(appNameQA)
+              appName: $(appNameQAOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
   - stage: Deploy_STG
     displayName: "Building Deploy STG"
@@ -175,5 +175,5 @@ stages:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionSTG)
-              appName: $(appNameSTG)
+              appName: $(appNameSTGOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
