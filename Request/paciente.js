@@ -21,6 +21,7 @@ const getConfigGetPaciente = (rut) => {
 const getPacienteValido = (rut) => {
   return {
     url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/paciente/?rut=${rut}`,
+    //url: `http://localhost:81/api/paciente/?rut=${rut}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },

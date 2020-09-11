@@ -8,15 +8,15 @@ const route = new Router();
 
 route.get("/getPaciente", async (req, res) => {
   try {
-    const usuarioValido = await get(getPacienteValido(req.query.rut));
-    if(usuarioValido.content[0]){
-      await get(getConfigGetPaciente(req.query.rut)).then((data) => {
-        res.send(data);
-      });
-    }else{
-      throw "No tiene BP "
-    }
-    
+
+    //data.content.response.BpCreado = await get(getPacienteValido(req.query.rut.toUpperCase()));
+    let rutFormateado = req.query.rut.replace(/\./g,'').toUpperCase();
+    const  valorBP = await get(getPacienteValido(rutFormateado));
+    await get(getConfigGetPaciente(rutFormateado)).then((data) => {
+      data.content.response.BpCreado = valorBP.content[0];
+      res.send(data);
+    });
+   
   } catch (error) {
     res.send(apiResponse({}, 500, "Error"));
   }
