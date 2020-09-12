@@ -10,27 +10,13 @@ trigger:
       #- feature/*
 
 variables:
-  - group: Variables-CICD_IaC
-  - name: vmImageName
-    value: "ubuntu-latest"
-  - name: ContainerRegistryName
-    value: "crdesacontainer"
+  - group: VARIABLE-ENTORNO-ADMISIONDIGITAL
+
   - name: DockerRepository
     value: "desa/admision_digital/achs-ms-orquestador"
   - name: ImageTag
     value: "_$(Build.BuildId)"
-  - name: appNameSTG
-    value: "wa-stg-admdig-msorquestador"
-  - name: azureSubcritionSTG
-    value: "ASC-STG-ADMISIONDIGITAL"
-  - name: appNameQA
-    value: "wa-qa-admisiondigital-msorquestador"
-  - name: azureSubcritionQA
-    value: "ASC-QA-ADMISIONDIGITAL"
-  - name: appNameDESA
-    value: "wa-desa-admdig-msorquestador"
-  - name: azureSubcritionDESA
-    value: "ASC-DESA-ADMISIONDIGITAL"
+
 
 pool:
   vmImage: $(vmImageName)
@@ -48,14 +34,25 @@ stages:
           - script: |
               echo "TargetBranch" $(System.PullRequest.TargetBranch)
               echo "sourceBranch " $(System.pullRequest.sourceBranch)
+
+              echo "appNameDESA: " $(appNameDESAOrq)
+              echo "appNameQA: " $(appNameQAOrq)
+              echo "appNameSTG: " $(appNameSTGOrq)
+              echo "appNameProd: " $(appNameProdOrq)
   # STAGE
   - stage: Deploy_DESA
     displayName: "Building Desploy DESA"
     condition: |
-      and(
-        startsWith(variables['system.pullRequest.sourceBranch'], 'refs/heads/feature'),
-        eq(variables['Build.Reason'], 'PullRequest')
-      )
+      or(
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDesa']),
+          eq(variables['Build.Reason'], 'PullRequest')
+        ), 
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployDesaHotfix']),
+          eq(variables['Build.Reason'], 'PullRequest')
+        )
+      ) 
     jobs:
       - deployment: Deploy
         displayName: "Deploy DESA"
@@ -82,15 +79,21 @@ stages:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionDESA)
-              appName: $(appNameDESA)
+              appName: $(appNameDESAOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
   - stage: Deploy_QA
     displayName: "Building Deploy QA"
     condition: |
-      and(
-        startsWith(variables['system.pullRequest.sourceBranch'], 'refs/heads/develop'),
-        eq(variables['Build.Reason'], 'PullRequest')
-       )
+        or( 
+         and(
+            startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchQa']),
+            eq(variables['Build.Reason'], 'PullRequest')
+          ), 
+          and(
+            startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployQaHotfix']),
+            eq(variables['Build.Reason'], 'PullRequest')
+          )
+        )
     jobs:
       - deployment: Deploy
         displayName: "Deploy QA"
@@ -117,15 +120,21 @@ stages:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionQA)
-              appName: $(appNameQA)
+              appName: $(appNameQAOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
   - stage: Deploy_STG
     displayName: "Building Deploy STG"
     condition: |
-      and(
-        startsWith(variables['system.pullRequest.sourceBranch'], 'refs/heads/release'),
-        eq(variables['Build.Reason'], 'PullRequest')
-      )
+      or(
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchStg']),
+          eq(variables['Build.Reason'], 'PullRequest')
+        ), 
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployStgHotfix']),
+          eq(variables['Build.Reason'], 'PullRequest')
+        )         
+       )   
     jobs:
       - deployment: Deploy
         displayName: "Deploy STG"
@@ -152,5 +161,5 @@ stages:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionSTG)
-              appName: $(appNameSTG)
+              appName: $(appNameSTGOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
