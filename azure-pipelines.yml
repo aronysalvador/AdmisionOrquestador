@@ -51,6 +51,10 @@ stages:
         and(
           startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployDesaHotfix']),
           eq(variables['Build.Reason'], 'PullRequest')
+        ),
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployHotfix']),
+          eq(variables['Build.Reason'], 'PullRequest')
         )
       ) 
     jobs:
@@ -84,13 +88,18 @@ stages:
   - stage: Deploy_QA
     displayName: "Building Deploy QA"
     condition: |
-        or( 
+       or( 
          and(
             startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchQa']),
+            startsWith(variables['system.pullRequest.TargetBranch'], variables['TargetBranchQa']),
             eq(variables['Build.Reason'], 'PullRequest')
           ), 
           and(
             startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployQaHotfix']),
+            eq(variables['Build.Reason'], 'PullRequest')
+          ),
+          and(
+            startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployHotfix']),
             eq(variables['Build.Reason'], 'PullRequest')
           )
         )
@@ -169,13 +178,18 @@ stages:
       or(
         and(
           startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchProd']),
+          startsWith(variables['system.pullRequest.TargetBranch'], variables['TargetBranchProd']),
           eq(variables['Build.Reason'], 'PullRequest')
         ), 
         and(
           startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployProdHotfix']),
           eq(variables['Build.Reason'], 'PullRequest')
+        ),        
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployHotfix']),
+          eq(variables['Build.Reason'], 'PullRequest')
         )         
-       )  
+       ) 
     jobs:
       - deployment: Deploy
         displayName: "Deploy PROD"
