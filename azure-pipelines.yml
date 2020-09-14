@@ -51,6 +51,10 @@ stages:
         and(
           startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployDesaHotfix']),
           eq(variables['Build.Reason'], 'PullRequest')
+        ),
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployHotfix']),
+          eq(variables['Build.Reason'], 'PullRequest')
         )
       ) 
     jobs:
@@ -84,13 +88,18 @@ stages:
   - stage: Deploy_QA
     displayName: "Building Deploy QA"
     condition: |
-        or( 
+       or( 
          and(
             startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchQa']),
+            startsWith(variables['system.pullRequest.TargetBranch'], variables['TargetBranchQa']),
             eq(variables['Build.Reason'], 'PullRequest')
           ), 
           and(
             startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployQaHotfix']),
+            eq(variables['Build.Reason'], 'PullRequest')
+          ),
+          and(
+            startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployHotfix']),
             eq(variables['Build.Reason'], 'PullRequest')
           )
         )
@@ -122,25 +131,71 @@ stages:
               azureSubscription: $(azureSubcritionQA)
               appName: $(appNameQAOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
-  - stage: Deploy_STG
-    displayName: "Building Deploy STG"
+  # - stage: Deploy_STG
+  #   displayName: "Building Deploy STG"
+  #   condition: |
+  #     or(
+  #       and(
+  #         startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchStg']),
+  #         eq(variables['Build.Reason'], 'PullRequest')
+  #       ), 
+  #       and(
+  #         startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployStgHotfix']),
+  #         eq(variables['Build.Reason'], 'PullRequest')
+  #       )         
+  #      )   
+  #   jobs:
+  #     - deployment: Deploy
+  #       displayName: "Deploy STG"
+  #       environment: "Deploy_STG"
+  #     - job: Build
+  #       displayName: "Deploy STG"
+  #       steps:
+  #         - task: Docker@2
+  #           displayName: Build Docker Image
+  #           inputs:
+  #             containerRegistry: $(ContainerRegistryName)
+  #             repository: $(DockerRepository)
+  #             command: build
+  #             Dockerfile: ./Dockerfile
+  #             tags: $(ImageTag)
+  #             arguments: --build-arg env=staging
+  #         - task: Docker@2
+  #           displayName: Push Docker Image
+  #           inputs:
+  #             containerRegistry: $(ContainerRegistryName)
+  #             repository: $(DockerRepository)
+  #             command: push
+  #             tags: $(ImageTag)
+  #         - task: AzureWebAppContainer@1
+  #           inputs:
+  #             azureSubscription: $(azureSubcritionSTG)
+  #             appName: $(appNameSTGOrq)
+  #             containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
+  - stage: Deploy_PROD
+    displayName: "Building Deploy PROD"
     condition: |
       or(
         and(
-          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchStg']),
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchProd']),
+          startsWith(variables['system.pullRequest.TargetBranch'], variables['TargetBranchProd']),
           eq(variables['Build.Reason'], 'PullRequest')
         ), 
         and(
-          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployStgHotfix']),
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployProdHotfix']),
+          eq(variables['Build.Reason'], 'PullRequest')
+        ),        
+        and(
+          startsWith(variables['system.pullRequest.sourceBranch'], variables['sourceBranchDeployHotfix']),
           eq(variables['Build.Reason'], 'PullRequest')
         )         
-       )   
+       ) 
     jobs:
       - deployment: Deploy
-        displayName: "Deploy STG"
-        environment: "Deploy_STG"
+        displayName: "Deploy PROD"
+        environment: "Deploy_PROD"
       - job: Build
-        displayName: "Deploy STG"
+        displayName: "Deploy PROD"
         steps:
           - task: Docker@2
             displayName: Build Docker Image
@@ -150,7 +205,7 @@ stages:
               command: build
               Dockerfile: ./Dockerfile
               tags: $(ImageTag)
-              arguments: --build-arg env=staging
+              arguments: --build-arg env=production
           - task: Docker@2
             displayName: Push Docker Image
             inputs:
@@ -160,6 +215,6 @@ stages:
               tags: $(ImageTag)
           - task: AzureWebAppContainer@1
             inputs:
-              azureSubscription: $(azureSubcritionSTG)
-              appName: $(appNameSTGOrq)
-              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
+              azureSubscription: $(azureSubcritionProd)
+              appName: $(appNameProdOrq)
+              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)    
