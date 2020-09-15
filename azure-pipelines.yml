@@ -12,8 +12,15 @@ trigger:
 variables:
   - group: VARIABLE-ENTORNO-ADMISIONDIGITAL
 
-  - name: DockerRepository
-    value: "desa/admision_digital/achs-ms-orquestador"
+  - name: Repository
+    value: "admision_digital/achs-ms-orquestador"
+  - name: DockerRepositoryDesa
+    value: desa/${{variables['Repository'] }} 
+  - name: DockerRepositoryQA
+    value: qa/${{variables['Repository'] }} 
+  - name: DockerRepositoryProd
+    value: prod/${{variables['Repository'] }} 
+
   - name: ImageTag
     value: "_$(Build.BuildId)"
 
@@ -39,6 +46,10 @@ stages:
               echo "appNameQA: " $(appNameQAOrq)
               echo "appNameSTG: " $(appNameSTGOrq)
               echo "appNameProd: " $(appNameProdOrq)
+
+              echo "DockerRepositoryDesa: " $(DockerRepositoryDesa)
+              echo "DockerRepositoryQA: " $(DockerRepositoryQA)
+              echo "DockerRepositoryProd: " $(DockerRepositoryProd)                  
   # STAGE
   - stage: Deploy_DESA
     displayName: "Building Desploy DESA"
@@ -68,7 +79,7 @@ stages:
             displayName: Build Docker Image
             inputs:
               containerRegistry: $(ContainerRegistryName)
-              repository: $(DockerRepository)
+              repository: $(DockerRepositoryDesa)
               command: build
               Dockerfile: ./Dockerfile
               tags: $(ImageTag)
@@ -77,14 +88,14 @@ stages:
             displayName: Push Docker Image
             inputs:
               containerRegistry: $(ContainerRegistryName)
-              repository: $(DockerRepository)
+              repository: $(DockerRepositoryDesa)
               command: push
               tags: $(ImageTag)
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionDESA)
               appName: $(appNameDESAOrq)
-              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
+              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepositoryDesa):$(ImageTag)
   - stage: Deploy_QA
     displayName: "Building Deploy QA"
     condition: |
@@ -114,7 +125,7 @@ stages:
             displayName: Build Docker Image
             inputs:
               containerRegistry: $(ContainerRegistryName)
-              repository: $(DockerRepository)
+              repository: $(DockerRepositoryQA)
               command: build
               Dockerfile: ./Dockerfile
               tags: $(ImageTag)
@@ -123,14 +134,14 @@ stages:
             displayName: Push Docker Image
             inputs:
               containerRegistry: $(ContainerRegistryName)
-              repository: $(DockerRepository)
+              repository: $(DockerRepositoryQA)
               command: push
               tags: $(ImageTag)
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionQA)
               appName: $(appNameQAOrq)
-              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)
+              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepositoryQA):$(ImageTag)
   # - stage: Deploy_STG
   #   displayName: "Building Deploy STG"
   #   condition: |
@@ -201,7 +212,7 @@ stages:
             displayName: Build Docker Image
             inputs:
               containerRegistry: $(ContainerRegistryName)
-              repository: $(DockerRepository)
+              repository: $(DockerRepositoryProd)
               command: build
               Dockerfile: ./Dockerfile
               tags: $(ImageTag)
@@ -210,11 +221,11 @@ stages:
             displayName: Push Docker Image
             inputs:
               containerRegistry: $(ContainerRegistryName)
-              repository: $(DockerRepository)
+              repository: $(DockerRepositoryProd)
               command: push
               tags: $(ImageTag)
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: $(azureSubcritionProd)
               appName: $(appNameProdOrq)
-              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepository):$(ImageTag)    
+              containers: $(ContainerRegistryName).azurecr.io/$(DockerRepositoryProd):$(ImageTag)    
