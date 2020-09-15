@@ -13,7 +13,7 @@ variables:
   - group: VARIABLE-ENTORNO-ADMISIONDIGITAL
 
   - name: Repository
-    value: "desa/admision_digital/achs-ms-orquestador"
+    value: "admision_digital/achs-ms-orquestador"
   - name: DockerRepositoryDesa
     value: desa/${{variables['Repository'] }} 
   - name: DockerRepositoryQA
