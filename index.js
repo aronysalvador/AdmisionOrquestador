@@ -13,6 +13,7 @@ const bd = require("./routes/bd");
 const log = require("./routes/logs");
 const paciente = require("./routes/paciente");
 const admisionista = require("./routes/admisionista");
+const autentificacion = require("./routes/autentificacion");
 var cors = require("cors");
 
 const app = express();
@@ -29,6 +30,7 @@ app.use("/api/bd", bd);
 app.use("/api/logs", log);
 app.use("/api/paciente", paciente);
 app.use("/api/admisionista", admisionista);
+app.use("/api/autentificacion", autentificacion);
 
 const port = 80;
 app.listen(port, () => {
