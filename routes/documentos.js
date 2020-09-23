@@ -13,20 +13,23 @@ route.get("/", async (req, res) => {
     var codigos= [];
     var documentos= [];
     await get(getCodigos(req.query.rut)).then((data) => {
-
      codigos = data.data.map(cod => {
         return cod.codigo;
         });
 
     });
 
-    codigos.map(async(codigos) => {await get(getDocumentos(codigos)).then((data) =>{
-        // console.log(data)
+     codigos.map(async(codigos) => {await get(getDocumentos(codigos)).then((data) =>{
+         console.log(data)
         documentos.push(data)
+      
 
     })})
 
-    res.send(documentos);
+    //res.send(documentos);
+    
+
+    
 
   } catch (error) {
       console.log(error)
