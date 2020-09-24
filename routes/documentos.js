@@ -3,7 +3,7 @@ const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getCodigos = require("../Request/codigos");
 const getDocumentos = require("../Request/documentos");
 const get = require("../Utils/ApiUtil/http");
-
+const apiObjectResponse = require("../Utils/ApiUtil/apiResponseObjectReducer");
 const route = new Router();
 
 
@@ -15,13 +15,16 @@ route.get("/", async (req, res) => {
 
     await Promise.all(data.data.map(async ({codigo}) => {
       await get(getDocumentos(codigo)).then((result) => {
-        documentos.push(result)
+        // documentos.push()
+        result.Resultado.documentosMatriz.map((documento) => {
+          documentos.push(documento)
+        });
       });
     }))
 
     });
 
-    res.send(documentos);
+    res.send(apiObjectResponse(documentos, 200, "Envio de documentos"));
 
   } catch (error) {
       console.log(error)
