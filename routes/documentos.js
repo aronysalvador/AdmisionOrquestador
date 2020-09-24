@@ -10,26 +10,18 @@ const route = new Router();
 route.get("/", async (req, res) => {
   try {
 
-    var codigos= [];
     var documentos= [];
-    await get(getCodigos(req.query.rut)).then((data) => {
-     codigos = data.data.map(cod => {
-        return cod.codigo;
-        });
+    await get(getCodigos(req.query.rut)).then(async (data) => {
+
+    await Promise.all(data.data.map(async ({codigo}) => {
+      await get(getDocumentos(codigo)).then((result) => {
+        documentos.push(result)
+      });
+    }))
 
     });
 
-     codigos.map(async(codigos) => {await get(getDocumentos(codigos)).then((data) =>{
-         console.log(data)
-        documentos.push(data)
-      
-
-    })})
-
-    //res.send(documentos);
-    
-
-    
+    res.send(documentos);
 
   } catch (error) {
       console.log(error)
