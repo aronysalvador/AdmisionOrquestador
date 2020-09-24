@@ -14,6 +14,7 @@ const log = require("./routes/logs");
 const paciente = require("./routes/paciente");
 const admisionista = require("./routes/admisionista");
 const autentificacion = require("./routes/autentificacion");
+const documentos = require("./routes/documentos");
 var cors = require("cors");
 
 const app = express();
@@ -31,6 +32,7 @@ app.use("/api/logs", log);
 app.use("/api/paciente", paciente);
 app.use("/api/admisionista", admisionista);
 app.use("/api/autentificacion", autentificacion);
+app.use("/api/documentos", documentos);
 
 const port = 80;
 app.listen(port, () => {
