@@ -15,7 +15,6 @@ route.get("/", async (req, res) => {
 
     await Promise.all(data.data.map(async ({codigo}) => {
       await get(getDocumentos(codigo)).then((result) => {
-        // documentos.push()
         result.Resultado.documentosMatriz.map((documento) => {
           documentos.push(documento)
         });
