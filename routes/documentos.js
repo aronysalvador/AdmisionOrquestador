@@ -6,6 +6,18 @@ const get = require("../Utils/ApiUtil/http");
 const apiObjectResponse = require("../Utils/ApiUtil/apiResponseObjectReducer");
 const route = new Router();
 
+//Metodo utilizado por la api antigua de firma digital, para pruebas de egreso
+route.get("/MostrarDocumento", async (req, res) => {
+  try {
+    const {codigoGenerado} = req.query
+    const result = await get(getDocumentos(codigoGenerado))
+    res.send(result);
+    
+  } catch (error) {
+    res.send(apiResponse([], 500,error));
+  }
+});
+
 
 route.get("/", async (req, res) => {
   try {
