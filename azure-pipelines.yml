@@ -39,7 +39,7 @@ stages:
         displayName: "Info"
         steps:
           - script: |
-              echo "TargetBranch" $(System.PullRequest.TargetBranch)
+              echo "TargetBranch" $(System.PullRequest.TargetBranch) 
               echo "sourceBranch " $(System.pullRequest.sourceBranch)
                           
   # STAGE
