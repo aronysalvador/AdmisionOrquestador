@@ -1,0 +1,3713 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "Esta API permite obtener información de la DB",
+        "version": "1.0.0",
+        "title": "API Orquestador ACHS",
+        "contact": {
+            "name": "Orianna Núñez",
+            "email": "onunezc@achs.cl"
+        }
+    },
+    "host": "https://wa-desa-msorquestador.azurewebsites.net/",
+    "paths": {
+        "/api/sap/isapres/":{
+           "get": {
+            "description": "Obtener listado de Isapres",
+             "responses": {
+                "200": {
+                  "description": "Listado de Isapres",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                            "properties": {
+                                "content": {
+                                  "type": "object",
+                                  "example": [
+                                              [
+                                                {
+                                                    "id": "2000025835",
+                                                    "nombre": "FONASA"
+                                                },
+                                                {
+                                                    "id": "2000066856",
+                                                    "nombre": "ISAPRE GALENICA SOCIEDAD ANONIM"
+                                                }
+                                              ]
+                                            ]  
+                                },
+                                "status": {
+                                     "type": "integer",
+                                     "example": 200
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Operación exitosa"
+                                 }
+                              }
+                          }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },
+        "/api/sap/afp/":{
+           "get": {
+            "description": "Obtener listado de AFP",
+             "responses": {
+                "200": {
+                  "description": "Listado de AFP",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": [
+                                          [
+                          {
+                            "id": "294696486609065761",
+                            "codigo": "001",
+                            "nombre": "CAPITAL"
+                          },
+                          {
+                            "id": "294696486609065762",
+                            "codigo": "002",
+                            "nombre": "CUPRUM"
+                          }
+                                          ]
+                                        ]  
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },
+        "/api/sap/categoriaOcupacional/":{
+           "get": {
+            "description": "Obtener listado de Cargos",
+             "responses": {
+                "200": {
+                  "description": "Listado de Cargos",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": [
+                                          [
+                          {
+                            "id": 1,
+                            "nombre": "Empleadores"
+                          },
+                          {
+                            "id": 2,
+                            "nombre": "Asalariados"
+                          }
+                                          ]
+                                        ]  
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },  
+        "/api/sap/tipoContrato/":{
+           "get": {
+            "description": "Obtener listado de Tipos de Contratos",
+             "responses": {
+                "200": {
+                  "description": "Listado de Tipos de Contratos",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": [
+                                          [
+                          {
+                            "id": 1,
+                            "nombre": "Indefinido"
+                          },
+                          {
+                            "id": 2,
+                            "nombre": "Plazo Fijo"
+                          }
+                                          ]
+                                        ]  
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },  
+        "/api/sap/jornadaTrabajo/":{
+           "get": {
+            "description": "Obtener listado de Jornadas de Trabajo",
+             "responses": {
+                "200": {
+                  "description": "Listado de Jornadas de Trabajo",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": [
+                                          [
+                          {
+                            "id": "1",
+                            "nombre": "Lunes a Viernes",
+                            "key": "294705904613667621"
+                          },
+                          {
+                            "id": "2",
+                            "nombre": "Lunes a Sabado",
+                            "key": "294705904613667622"
+                          }
+                                          ]
+                                        ]  
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },  
+        "/api/sap/tipoRemuneracion/":{
+           "get": {
+            "description": "Obtener listado de Tipos de Remuneración",
+             "responses": {
+                "200": {
+                  "description": "Listado de Tipos de Remuneración",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": [
+                                          [
+                          {
+                            "id": 1,
+                            "nombre": "Salario Fijo"
+                          },
+                          {
+                            "id": 2,
+                            "nombre": "Por Comisiones"
+                          }
+                                          ]
+                                        ]  
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },  
+        "/api/sap/comunas":{
+           "get": {
+            "description": "Obtener listado de Comunas",
+             "responses": {
+                "200": {
+                  "description": "Listado de Comunas",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": [
+                                          [
+                          {
+                            "id": "294707476544295621",
+                            "codigo_region": "01",
+                            "codigo_comuna": "101",
+                            "nombre": "IQUIQUE"
+                          },
+                          {
+                            "id": "294707476544295622",
+                            "codigo_region": "01",
+                            "codigo_comuna": "107",
+                            "nombre": "ALTO HOSPICIO"
+                          }
+                                          ]
+                                        ]  
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },  
+        "/api/sap/centros":{
+           "get": {
+            "description": "Obtener listado de Centros",
+             "responses": {
+                "200": {
+                  "description": "Listado de Centros",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example":  
+                                          {
+                                            "response": [
+                                              {
+                                                "Centro_m": "Alameda",
+                                                "UO_Medica": "ALAMAPRI",
+                                                "UO_Tratamiento": "ALATCAPR"
+                                              },
+                                              {
+                                                "Centro_m": "Ancud",
+                                                "UO_Medica": "ANCMAPRI",
+                                                "UO_Tratamiento": "ANCTCAPR"
+                                              }
+                                            ]
+                                          }
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Se encontrarón *cantidad* centros."
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },  
+       "/api/sap/profesiones":{
+           "get": {
+            "description": "Obtener listado de Profesionales",
+             "responses": {
+                "200": {
+                  "description": "Listado de Profesionales",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example":  
+                                          {
+                                            "response": [
+                            {
+                              "codigo": 2619,
+                              "nombre": "Abogado(a)"
+                            },
+                            {
+                              "codigo": 7310,
+                              "nombre": "Agricultor(a) o afín"
+                            }
+                                            ]
+                                          }
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },    
+       "/api/sap/alertas":{
+           "get": {
+            "description": "Obtener listado de Tipos de Alertas",
+             "responses": {
+                "200": {
+                  "description": "Listado de Tipos de Alertas",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example":  
+                                          {
+                                             "response": [
+                                {
+                                  "id": 1,
+                                  "glosa": "El relato no es coherente",
+                                  "opciones": [
+                                    {
+                                      "id": 1,
+                                      "glosa": "Posible causa no laboral",
+                                      "opciones": [
+                                        {
+                                          "id": 1,
+                                          "glosa": "Accidente sin prestación oportuna, sin testigo y aviso tardío a empresa",
+                                          "opciones": []
+                                        },
+                                        {
+                                          "id": 2,
+                                          "glosa": "Accidente en Trámites personales",
+                                          "opciones": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "id": 2,
+                                      "glosa": "Dirigente sindical en cometido gremial",
+                                      "opciones": []
+                                    },
+                                    {
+                                      "id": 3,
+                                      "glosa": "Trabajo a distancia",
+                                      "opciones": []
+                                    }
+                                  ]
+                                  }
+                              ]
+                                          }
+                            },
+                            "status": {
+                                 "type": "integer",
+                                 "example": 200
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }
+                      }
+                      }
+                    }
+                },
+                "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": {
+                                                "response": [
+                                                    {}
+                                                ]
+                                            }
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 500
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+           }
+        },  
+        "/api/sap/razonSocialByName":{
+          "get": {
+            "description": "Obtener data empresa por razón social",
+            "parameters": [
+              {
+                "name": "companyName",
+                "in": "query",
+                "description": "Nombre de la Compañía",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "HORUS PROMOTION & MARKETING LIMITADA"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Data de Empresa",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": {
+                      "response": [
+                        {
+                          "bp": "2000711418",
+                          "name": "HORUS PROMOTION & MARKETING LIMITADA",
+                          "rut": "77893570-8"
+                        }
+                      ]
+                    }           
+                  },
+                  "status": {
+                    "type": "integer",
+                    "example": 200
+                  },
+                  "mensaje": {
+                    "type": "string",
+                    "example": "Se encontrarón *cantidad* registros."
+                  }
+                          }
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  {}
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },  
+        "/api/sap/razonSocialByRut":{
+          "get": {
+            "description": "Obtener data empresa por el Rut",
+            "parameters": [
+              {
+                "name": "rut",
+                "in": "query",
+                "description": "Rut de la Compañía",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "70360100-6"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Data de Empresa",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": {
+                      "response": [
+                        {
+                          "bp": "2000462553",
+                          "name": "ASOCIACIÓN CHILENA DE SEGURIDAD",
+                          "rut": "70360100-6"
+                        }
+                      ]
+                    }           
+                  },
+                  "status": {
+                    "type": "integer",
+                    "example": 200
+                  },
+                  "mensaje": {
+                    "type": "string",
+                    "example": "Se encontrarón *cantidad* registros."
+                  }
+                          }
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  {}
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },  
+        "/api/paciente/validate":{
+          "get": {
+            "description": "Validar Paciente Empresa y Sucursal",
+            "parameters": [
+              {
+                "name": "rutPaciente",
+                "in": "query",
+                "description": "Rut Paciente",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "15004438-3"
+                }
+              },
+          {
+                "name": "rutEmpresa",
+                "in": "query",
+                "description": "Rut Empresa",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "70360100-6"
+                }
+              },
+          {
+                "name": "BpSucursal",
+                "in": "query",
+                "description": "BP Sucursal Empresa",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "176"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Resultado de validación",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": {
+                        "response": {
+                          "Empresa": "Afiliada",
+                          "Sucursal": "Vigente",
+                          "CotizacionesPaciente": true
+                        }
+                      }           
+                  },
+                  "status": {
+                    "type": "integer",
+                    "example": 200
+                  },
+                  "mensaje": {
+                    "type": "string",
+                    "example": "Operacion exitosa"
+                  }
+                          }
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  {}
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },  
+        "/api/paciente/getPaciente":{
+          "get": {
+            "description": "Ibtener info del paciente por Rut",
+            "parameters": [
+              {
+                "name": "rut",
+                "in": "query",
+                "description": "Rut Paciente",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "15004438-3"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Data del Paciente",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example": {
+                        "response": {
+                          "BpCreado": true,
+                          "NombreEmpresa": "",
+                          "RutPagador": "70360100-6",
+                          "RutTrabajador": "15004438-3",
+                          "SucursalEmpresa": "",
+                          "DireccionEmpresa": "",
+                          "comunaEmpresa": "",
+                          "direccionParticular": "ZAPALERI 1451 0, CALAMA",
+                          "telefonoParticular": "955183205",
+                          "cita": {},
+                          "siniestros": [
+                            {
+                              "id": "0006704656",
+                              "descripcion": "Trabajo",
+                              "fecha": "26 Ag 2020",
+                              "fecha_date": "2020-08-26T00:00:00.000Z",
+                              "CUN": "",
+                              "codigoUnicoNacionalExterno": "",
+                              "cesa": "A000",
+                              "interLComercial": "2000462553",
+                              "tipoLey": "Ley 16.744",
+                              "reposoActivo": "NO",
+                              "hora": "13:29",
+                              "paciente": "TONY"
+                            },
+                            {
+                              "id": "0006704669",
+                              "descripcion": "Trabajo",
+                              "fecha": "27 Ag 2020",
+                              "fecha_date": "2020-08-27T00:00:00.000Z",
+                              "CUN": "",
+                              "codigoUnicoNacionalExterno": "",
+                              "cesa": "A000",
+                              "interLComercial": "2000462553",
+                              "tipoLey": "Ley 16.744",
+                              "reposoActivo": "NO",
+                              "hora": "13:04",
+                              "paciente": "TONY"
+                            }
+                          ],
+                          "apellidoMaterno": "GARECA",
+                          "apellidoPaterno": "DIAZ",
+                          "nombre": "SERGIO ANDRES",
+                          "fechaNacimiento": "1982-09-07T00:00:00",
+                          "masculino": "X",
+                          "femenino": "",
+                          "nacionalidad": "CL",
+                          "lugarNacimiento": "",
+                          "estadoCivil": "1"
+                        }
+                      }           
+                  },
+                  "status": {
+                    "type": "integer",
+                    "example": 200
+                  },
+                  "mensaje": {
+                    "type": "string",
+                    "example": "Operación exitosa."
+                  }
+                          }
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  {}
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },  
+       "/api/admisionista/getAliasSapByEmail":{
+          "get": {
+            "description": "Obtener Alias del Admisionista",
+            "parameters": [
+              {
+                "name": "email",
+                "in": "query",
+                "description": "Email del Admisionista",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "onunezc@ext.achs.cl"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Alias del Admisionista",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "object",
+                              "example":  [
+                          "onunezc"
+                        ]
+                            },
+                  "status": {
+                   "type": "integer",
+                   "example": 200
+                  },
+                  "mensaje": {
+                   "type": "string",
+                   "example": "Operacion exitosa"
+                 }
+                          }
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  {}
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },  
+        "/api/sap/centrosUser":{
+          "get": {
+            "description": "Obtener centros de un usuario",
+            "parameters": [
+              {
+                "name": "email",
+                "in": "query",
+                "description": "Email del usuario",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "onunezc@ext.achs.cl"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Centro del usuario",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "example":  [
+                                            {
+                                                "email": "onunezc@ext.achs.cl",
+                                                "centrosForm": {
+                                                    "Centro_m": "Cabildo",
+                                                    "UO_Medica": "CBIMAPRI",
+                                                    "UO_Tratamiento": "CBITCAPR"
+                                                }
+                                            }
+                                        ]
+                            }
+                          }
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  {}
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },
+       "/api/sap/sucursales/":{
+          "get": {
+            "description": "Obtener sucursales de empresa por rut",
+            "parameters": [
+              {
+                "name": "rutEmpresa",
+                "in": "query",
+                "description": "Rut de la empresa",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "77.893.570-8"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Data de Empresa",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                         "example":
+                           [
+                              {
+                                  "codigo": 2000711418,
+                                  "nombre": "",
+                                  "id_comuna": "301",
+                                  "comuna": "COLINA",
+                                  "codigo_region": 13,
+                                  "region": "RM - Santiago",
+                                  "direccion": "CARRETERA SAN MARTIN DPTO 2076000"
+                              }
+                          ]
+                         
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  []
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },   
+        "/api/logs/": {
+          "post":{
+             "description": "Crear Log",
+             "requestBody": {
+                   "content": {
+                      "application/json": {
+                          "schema":{
+                            "type": "object",
+                            "properties": {
+                              "opcion": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "centro": {
+                                "type": "object",
+                                "example": 
+                                    {
+                                        "id":6,
+                                        "Centro_m":"Alameda",
+                                        "UO_Medica":"ALAMAPRI",
+                                        "UO_Tratamiento":"ALATCAPR"
+                                    }
+                              },
+                              "email": {
+                                "type": "string",
+                                "example": "onunezc@ext.achs.cl"
+                              },
+                              "fecha": {
+                                "type": "string",
+                                "example": "2020-09-01"
+                              },
+                              "hora": {
+                                "type": "string",
+                                "example": "13:50"                              
+                              },
+                              "rut": {
+                                "type": "string",
+                                "example": "15004438-3"
+                              },
+                              "BP": {
+                                "type": "string",
+                                "example": "1002615349"
+                              },
+                              "tipoSiniestro": {
+                                "type": "object",
+                                "example": 
+                                    { 
+                                        "Id": 1, 
+                                        "Descripcion": "Accidente Trabajo"
+                                    }
+                              }
+                            }
+                          }
+                      }
+                   }
+             },
+             "responses": {
+              "200": {
+                  "description": "Id de registro de log",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                          "type": "object",
+                            "properties": {
+                              "ok": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "error": {
+                                "type": "boolean",
+                                "example": false
+                              },
+                              "data": {
+                                "type": "object",
+                                "example": [
+                                                {
+                                                    "IdCentro": 0,
+                                                    "IdRegister": 312,
+                                                    "IdRegisterDetail": 427
+                                                }
+                                            ]
+                              }
+                            }
+                        }
+                      }
+                    }
+                },         
+                  "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": [
+                                              []
+                                          ]
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 200
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+          }
+        },
+          "/api/sap/integracionsap": {
+          "post":{
+             "description": "Crear Caso",
+             "requestBody": {
+                   "content": {
+                      "application/json": {
+                          "schema":{
+                            "type": "object",
+                            "properties": {
+                 
+                                "id_tipo": {
+                                  "type": "integer",
+                                  "example": 1
+                                },
+                                "id_estado": {
+                                  "type": "integer",
+                                  "example": 2
+                                },
+                                "rut_paciente": {
+                                  "type": "string",
+                                  "example": "8960683-7"
+                                },
+                                "mail_admisionista": {
+                                  "type": "string",
+                                  "example": "tkrikoriam@achs.cl"
+                                },
+                                "admision_json": {
+                                  "type": "object",
+                                  "example": {
+              "step": 1001,
+              "percentage": 3707.4074074074074,
+              "rut": "25951215-8",
+              "isAfiliado": "Si",
+              "empresa": "",
+              "rutEmpresa": "70360100-6",
+              "isapreSeleccionado": {
+                  "id": "2000133146",
+                  "nombre": "CRUZ BLANCA"
+              },
+              "lugarAccidente": "caminando por la calle",
+              "objetoAccidente": "una piedra en el suelo",
+              "descripcionAccidente": "me tropece con una piedra y me doble el pie",
+              "relatoAccidente": "Al momento del accidente estaba caminando por la calle. Lo que ocurrió fue que me tropece con una piedra y me doble el pie. El accidente ocurrió con una piedra en el suelo",
+              "volverAConcatenar": false,
+              "testigos": {
+                  "nombre": "",
+                  "cargo": ""
+              },
+              "responsable": {
+                  "nombre": "",
+                  "cargo": ""
+              },
+              "fechaHoraResponsable": {},
+              "fechaHoraSiniestro": {
+                  "days": 1,
+                  "month": 9,
+                  "year": 2020,
+                  "horas": 9,
+                  "indiceMinutos": 1,
+                  "minutos": 10
+              },
+              "SucursalEmpresa": "",
+              "DireccionEmpresa": "CALLE RAMON CARNICER163",
+              "comunaEmpresa": "",
+              "direccionParticular": "CARMEN 616, SANTIAGO",
+              "telefonoParticular": "+56 9 4527 1245",
+              "inicioJornadaLaboral": "9:30",
+              "finJornadaLaboral": "18:30",
+              "ingresoTrabajoActual": "2018-01-01T03:00:00.000Z",
+              "desarrollarTrabajoHabitual": "Si",
+              "tipoRemuneracion": {
+                  "id": 1,
+                  "nombre": "Salario Fijo",
+                  "selected": true
+              },
+              "tipoDeContrato": {
+                  "id": 1,
+                  "nombre": "Indefinido",
+                  "selected": true
+              },
+              "cargoForm": "DevOps",
+              "sucursalEmpresaSiniestro": {
+                  "description": "General Jofré 21, Santiago, Chile",
+                  "matched_substrings": [
+                      {
+                          "length": 13,
+                          "offset": 0
+                      },
+                      {
+                          "length": 2,
+                          "offset": 14
+                      }
+                  ],
+                  "place_id": "ChIJu2et93fFYpYR6Z2khdOkF9U",
+                  "reference": "ChIJu2et93fFYpYR6Z2khdOkF9U",
+                  "structured_formatting": {
+                      "main_text": "General Jofré 21",
+                      "main_text_matched_substrings": [
+                          {
+                              "length": 13,
+                              "offset": 0
+                          },
+                          {
+                              "length": 2,
+                              "offset": 14
+                          }
+                      ],
+                      "secondary_text": "Santiago, Chile"
+                  },
+                  "terms": [
+                      {
+                          "offset": 0,
+                          "value": "General Jofré"
+                      },
+                      {
+                          "offset": 14,
+                          "value": "21"
+                      },
+                      {
+                          "offset": 18,
+                          "value": "Santiago"
+                      },
+                      {
+                          "offset": 28,
+                          "value": "Chile"
+                      }
+                  ],
+                  "types": [
+                      "street_address",
+                      "geocode"
+                  ]
+              },
+              "urlMapasucursalEmpresaSiniestro": "https://wa-desa-msorquestador.azurewebsites.net/api/geo/getMapaEstatico?id=ChIJu2et93fFYpYR6Z2khdOkF9U&size=300x280",
+              "SucursalEmpresaObjeto": {
+                  "codigo": 2000462553,
+                  "nombre": "",
+                  "id_comuna": "123",
+                  "comuna": "PROVIDENCIA",
+                  "codigo_region": 13,
+                  "region": "RM - Santiago",
+                  "direccion": "CALLE RAMON CARNICER163",
+                  "selected": true
+              },
+              "centrosForm": {
+                  "Centro_m": "Alameda",
+                  "UO_Medica": "ALAMAPRI",
+                  "UO_Tratamiento": "ALATCAPR"
+              },
+              "siniestros": [
+                  {
+                      "id": "0006663333",
+                      "descripcion": "No Ley",
+                      "fecha": "27 Febr 2020",
+                      "fecha_date": "2020-02-27T00:00:00.000Z",
+                      "CUN": "000000000005692270",
+                      "codigoUnicoNacionalExterno": "000000000005692270",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "17:56",
+                      "paciente": "KRIKORIAN MOGOLLON TONY"
+                  },
+                  {
+                      "id": "0006704638",
+                      "descripcion": "Trabajo",
+                      "fecha": "25 Ag 2020",
+                      "fecha_date": "2020-08-25T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "12:44",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704639",
+                      "descripcion": "Trabajo",
+                      "fecha": "25 Ag 2020",
+                      "fecha_date": "2020-08-25T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "12:45",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704642",
+                      "descripcion": "Trabajo",
+                      "fecha": "25 Ag 2020",
+                      "fecha_date": "2020-08-25T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "12:52",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704643",
+                      "descripcion": "Trabajo",
+                      "fecha": "25 Ag 2020",
+                      "fecha_date": "2020-08-25T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "12:59",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704647",
+                      "descripcion": "Trabajo",
+                      "fecha": "26 Ag 2020",
+                      "fecha_date": "2020-08-26T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "15:31",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704649",
+                      "descripcion": "Trabajo",
+                      "fecha": "27 Ag 2020",
+                      "fecha_date": "2020-08-27T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "15:09",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704650",
+                      "descripcion": "Trabajo",
+                      "fecha": "27 Ag 2020",
+                      "fecha_date": "2020-08-27T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "15:20",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704652",
+                      "descripcion": "Trabajo",
+                      "fecha": "25 Ag 2020",
+                      "fecha_date": "2020-08-25T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "10:05",
+                      "paciente": "BRIAN ISRAEL BRIONES SANTIBAÑEZ"
+                  },
+                  {
+                      "id": "0006704654",
+                      "descripcion": "Trabajo",
+                      "fecha": "26 Ag 2020",
+                      "fecha_date": "2020-08-26T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:01",
+                      "paciente": "TONY"
+                  },
+                  {
+                      "id": "0006704655",
+                      "descripcion": "Trabajo",
+                      "fecha": "26 Ag 2020",
+                      "fecha_date": "2020-08-26T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:10",
+                      "paciente": "TONY"
+                  },
+                  {
+                      "id": "0006704658",
+                      "descripcion": "Trabajo",
+                      "fecha": "26 Ag 2020",
+                      "fecha_date": "2020-08-26T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "15:09",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704659",
+                      "descripcion": "Trabajo",
+                      "fecha": "26 Ag 2020",
+                      "fecha_date": "2020-08-26T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "17:20",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704661",
+                      "descripcion": "Trabajo",
+                      "fecha": "25 Ag 2020",
+                      "fecha_date": "2020-08-25T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "14:32",
+                      "paciente": "TONY"
+                  },
+                  {
+                      "id": "0006704666",
+                      "descripcion": "Trabajo",
+                      "fecha": "26 Ag 2020",
+                      "fecha_date": "2020-08-26T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:12",
+                      "paciente": "TONY"
+                  },
+                  {
+                      "id": "0006704668",
+                      "descripcion": "Trabajo",
+                      "fecha": "26 Ag 2020",
+                      "fecha_date": "2020-08-26T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "16:09",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704670",
+                      "descripcion": "Trabajo",
+                      "fecha": "27 Ag 2020",
+                      "fecha_date": "2020-08-27T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "15:21",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704671",
+                      "descripcion": "Trabajo",
+                      "fecha": "27 Ag 2020",
+                      "fecha_date": "2020-08-27T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "15:15",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704672",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "07:28",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704673",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "10:55",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704674",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:02",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704675",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:39",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704677",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "19:50",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704678",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "19:51",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704679",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "20:26",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704680",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "20:32",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704681",
+                      "descripcion": "Trabajo",
+                      "fecha": "27 Ag 2020",
+                      "fecha_date": "2020-08-27T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "15:53",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704683",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "10:42",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704686",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "19:56",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704687",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "20:27",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704688",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "20:32",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704689",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "21:46",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704692",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "10:58",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704693",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "11:18",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704694",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:01",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704695",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:39",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704696",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "19:01",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704697",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "19:14",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704700",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "20:19",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704701",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "20:19",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704702",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "21:36",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704711",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "21:40",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704712",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "21:41",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704713",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "21:41",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704714",
+                      "descripcion": "Trabajo",
+                      "fecha": "28 Ag 2020",
+                      "fecha_date": "2020-08-28T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "21:44",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704776",
+                      "descripcion": "Trabajo",
+                      "fecha": "31 Ag 2020",
+                      "fecha_date": "2020-08-31T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "09:39",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704777",
+                      "descripcion": "Trabajo",
+                      "fecha": "31 Ag 2020",
+                      "fecha_date": "2020-08-31T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "09:42",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704787",
+                      "descripcion": "Trabajo",
+                      "fecha": "31 Ag 2020",
+                      "fecha_date": "2020-08-31T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "09:39",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704788",
+                      "descripcion": "Trabajo",
+                      "fecha": "31 Ag 2020",
+                      "fecha_date": "2020-08-31T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "09:46",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704805",
+                      "descripcion": "Trabajo",
+                      "fecha": "31 Ag 2020",
+                      "fecha_date": "2020-08-31T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "12:45",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  },
+                  {
+                      "id": "0006704811",
+                      "descripcion": "Trabajo",
+                      "fecha": "31 Ag 2020",
+                      "fecha_date": "2020-08-31T00:00:00.000Z",
+                      "CUN": "",
+                      "codigoUnicoNacionalExterno": "",
+                      "cesa": "A000",
+                      "interLComercial": "2000462553",
+                      "tipoLey": "Ley 16.744",
+                      "reposoActivo": "NO",
+                      "hora": "13:06",
+                      "paciente": "TONY KRIKORIAN MOGOLLON"
+                  }
+              ],
+              "siniestroDetalle": {},
+              "siniestroOpciones": {
+                  "mensajeAlerta": "Este paciente ya tiene un siniestro",
+                  "mensajeBoton": "Ver su(s) siniestro(s)",
+                  "origen": "getRut"
+              },
+              "tipoSiniestro": {
+                  "Id": 1,
+                  "Descripcion": "Accidente Trabajo"
+              },
+              "DireccionTemporal": {},
+              "LatTemporal": "",
+              "LongTemporal": "",
+              "AccidenteEnSucursal": "Si",
+              "usuarioSAP": "SADIAZG",
+              "datosAdicionalesSAP": {
+                  "apellidoMaterno": "MOGOLLON",
+                  "apellidoPaterno": "KRIKORIAN",
+                  "nombre": "TONY",
+                  "fechaNacimiento": "1985-06-28T00:00:00",
+                  "masculino": "X",
+                  "femenino": "",
+                  "nacionalidad": "CL",
+                  "lugarNacimiento": "",
+                  "estadoCivil": "1"
+              },
+              "cita": {},
+              "razonSocial": {
+                  "bp": "2000462553",
+                  "name": "ASOCIACIÓN CHILENA DE SEGURIDAD",
+                  "rut": "70360100-6"
+              },
+              "cantidadSucursales": 5,
+              "comunaSucursal": {
+                  "id": "29457866788626075301",
+                  "codigo_region": "13",
+                  "codigo_comuna": "123",
+                  "nombre": "PROVIDENCIA"
+              },
+              "sucursales": [
+                  {
+                      "codigo": 176,
+                      "nombre": "",
+                      "id_comuna": "123",
+                      "comuna": "PROVIDENCIA",
+                      "codigo_region": 13,
+                      "region": "RM - Santiago",
+                      "direccion": "JOFRE038"
+                  },
+                  {
+                      "codigo": 2000462553,
+                      "nombre": "",
+                      "id_comuna": "123",
+                      "comuna": "PROVIDENCIA",
+                      "codigo_region": 13,
+                      "region": "RM - Santiago",
+                      "direccion": "CALLE RAMON CARNICER163"
+                  },
+                  {
+                      "codigo": 2000462603,
+                      "nombre": "",
+                      "id_comuna": "123",
+                      "comuna": "PROVIDENCIA",
+                      "codigo_region": 13,
+                      "region": "RM - Santiago",
+                      "direccion": "JOFRE 073 - C.CAPACIT.-SALA CUNA"
+                  },
+                  {
+                      "codigo": 2000462554,
+                      "nombre": "",
+                      "id_comuna": "123",
+                      "comuna": "PROVIDENCIA",
+                      "codigo_region": 13,
+                      "region": "RM - Santiago",
+                      "direccion": "RAMON CARNICER 185"
+                  },
+                  {
+                      "codigo": 2000811342,
+                      "nombre": "",
+                      "id_comuna": "123",
+                      "comuna": "PROVIDENCIA",
+                      "codigo_region": 13,
+                      "region": "RM - Santiago",
+                      "direccion": "RANCAGUA333"
+                  }
+              ],
+              "codigoSucursal": 2000462553,
+              "relatoAccidenteTemporal": "Al momento del accidente estaba caminando por la calle. Lo que ocurrió fue que me tropece con una piedra y me doble el pie. El accidente ocurrió con una piedra en el suelo",
+              "lugarReferenciaSiniestro": "patio del edificio",
+              "afpForm": {
+                  "id": "294579640071820045",
+                  "codigo": "005",
+                  "nombre": "PLAN VITAL"
+              },
+              "profesionForm": {
+                  "codigo": 2619,
+                  "nombre": "Abogado(a)"
+              },
+              "tipoJornadaForm": {
+                  "id": "1",
+                  "nombre": "Lunes a Viernes",
+                  "key": "294579824283796091",
+                  "selected": true
+              },
+              "categoriaOcupacionalForm": {
+                  "id": 5,
+                  "nombre": "Trabajador Voluntario",
+                  "selected": true
+              },
+              "emailusuario": "tkrikoriam@outlook.com"
+          }
+                                }
+                 
+                 
+                 
+                 
+                            }
+                          }
+                      }
+                   }
+             },
+             "responses": {
+              "200": {
+                  "description": "Id de registro de log",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                          "type": "object",
+                            "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": [
+                                                {
+                                                    "siniestroID": "0006704833"
+                                                }
+                                            ]
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 200
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Operación Exitosa"
+                                 }
+                            }
+                        }
+                      }
+                    }
+                },         
+                  "500": {
+                  "description": "Error query o conexión",
+                     "content": {
+                      "application/json": {
+                        "schema":{
+                            "type": "object",
+                              "properties": {
+                                  "content": {
+                                  "type": "object",
+                                  "example": [
+                                              []
+                                          ]
+                                 },
+                                 "status": {
+                                   "type": "integer",
+                                   "example": 200
+                                 },
+                                 "mensaje": {
+                                   "type": "string",
+                                   "example": "Se ha producido un error"
+                                 }
+                              }
+                        }
+                      }
+                    }
+                }
+             }
+          }
+        },
+        
+        "/api/geo/autocompletarDirecciones":{
+          "get": {
+            "description": "Autocompletar dirección",
+            "parameters": [
+              {
+                "name": "direccion",
+                "in": "query",
+                "description": "Dirección",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "vicuña mackenna"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Dirección completa",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                             "content": {
+                              "type": "object",
+                              "example": [
+          {
+            "predictions": [
+              {
+                "description": "Vicuña Mackenna, Ñuñoa, Chile",
+                "matched_substrings": [
+                  {
+                    "length": 15,
+                    "offset": 0
+                  }
+                ],
+                "place_id": "EiBWaWN1w7FhIE1hY2tlbm5hLCDDkXXDsW9hLCBDaGlsZSIuKiwKFAoSCZPwPEZYxWKWEUsJ4-BBexlhEhQKEgnpNk38lM9ilhFFUf7fFm-NlQ",
+                "reference": "EiBWaWN1w7FhIE1hY2tlbm5hLCDDkXXDsW9hLCBDaGlsZSIuKiwKFAoSCZPwPEZYxWKWEUsJ4-BBexlhEhQKEgnpNk38lM9ilhFFUf7fFm-NlQ",
+                "structured_formatting": {
+                  "main_text": "Vicuña Mackenna",
+                  "main_text_matched_substrings": [
+                    {
+                      "length": 15,
+                      "offset": 0
+                    }
+                  ],
+                  "secondary_text": "Ñuñoa, Chile"
+                },
+                "terms": [
+                  {
+                    "offset": 0,
+                    "value": "Vicuña Mackenna"
+                  },
+                  {
+                    "offset": 17,
+                    "value": "Ñuñoa"
+                  },
+                  {
+                    "offset": 24,
+                    "value": "Chile"
+                  }
+                ],
+                "types": [
+                  "route",
+                  "geocode"
+                ]
+              },
+              {
+                "description": "Vicuña Mackenna, La Florida, Chile",
+                "matched_substrings": [
+                  {
+                    "length": 15,
+                    "offset": 0
+                  }
+                ],
+                "place_id": "EiNWaWN1w7FhIE1hY2tlbm5hLCBMYSBGbG9yaWRhLCBDaGlsZSIuKiwKFAoSCTefM6iL0GKWEU0yKS8gycmcEhQKEgmVkNXsJdFilhGs875Wy-Z1Aw",
+                "reference": "EiNWaWN1w7FhIE1hY2tlbm5hLCBMYSBGbG9yaWRhLCBDaGlsZSIuKiwKFAoSCTefM6iL0GKWEU0yKS8gycmcEhQKEgmVkNXsJdFilhGs875Wy-Z1Aw",
+                "structured_formatting": {
+                  "main_text": "Vicuña Mackenna",
+                  "main_text_matched_substrings": [
+                    {
+                      "length": 15,
+                      "offset": 0
+                    }
+                  ],
+                  "secondary_text": "La Florida, Chile"
+                },
+                "terms": [
+                  {
+                    "offset": 0,
+                    "value": "Vicuña Mackenna"
+                  },
+                  {
+                    "offset": 17,
+                    "value": "La Florida"
+                  },
+                  {
+                    "offset": 29,
+                    "value": "Chile"
+                  }
+                ],
+                "types": [
+                  "route",
+                  "geocode"
+                ]
+              },
+              {
+                "description": "Vicuña Mackenna, Calama, Chile",
+                "matched_substrings": [
+                  {
+                    "length": 15,
+                    "offset": 0
+                  }
+                ],
+                "place_id": "Eh9WaWN1w7FhIE1hY2tlbm5hLCBDYWxhbWEsIENoaWxlIi4qLAoUChIJ5fX8UbYJrJYRsin6R1-t-H4SFAoSCQ2LpZWPl6uWEQYjxyc2CXr-",
+                "reference": "Eh9WaWN1w7FhIE1hY2tlbm5hLCBDYWxhbWEsIENoaWxlIi4qLAoUChIJ5fX8UbYJrJYRsin6R1-t-H4SFAoSCQ2LpZWPl6uWEQYjxyc2CXr-",
+                "structured_formatting": {
+                  "main_text": "Vicuña Mackenna",
+                  "main_text_matched_substrings": [
+                    {
+                      "length": 15,
+                      "offset": 0
+                    }
+                  ],
+                  "secondary_text": "Calama, Chile"
+                },
+                "terms": [
+                  {
+                    "offset": 0,
+                    "value": "Vicuña Mackenna"
+                  },
+                  {
+                    "offset": 17,
+                    "value": "Calama"
+                  },
+                  {
+                    "offset": 25,
+                    "value": "Chile"
+                  }
+                ],
+                "types": [
+                  "route",
+                  "geocode"
+                ]
+              },
+              {
+                "description": "Vicuña Mackenna, Renca, Chile",
+                "matched_substrings": [
+                  {
+                    "length": 15,
+                    "offset": 0
+                  }
+                ],
+                "place_id": "Eh5WaWN1w7FhIE1hY2tlbm5hLCBSZW5jYSwgQ2hpbGUiLiosChQKEglh-ovUaMFilhHzWXkx0aRMOxIUChIJ07zrFq7GYpYRT6VwiNiJFOk",
+                "reference": "Eh5WaWN1w7FhIE1hY2tlbm5hLCBSZW5jYSwgQ2hpbGUiLiosChQKEglh-ovUaMFilhHzWXkx0aRMOxIUChIJ07zrFq7GYpYRT6VwiNiJFOk",
+                "structured_formatting": {
+                  "main_text": "Vicuña Mackenna",
+                  "main_text_matched_substrings": [
+                    {
+                      "length": 15,
+                      "offset": 0
+                    }
+                  ],
+                  "secondary_text": "Renca, Chile"
+                },
+                "terms": [
+                  {
+                    "offset": 0,
+                    "value": "Vicuña Mackenna"
+                  },
+                  {
+                    "offset": 17,
+                    "value": "Renca"
+                  },
+                  {
+                    "offset": 24,
+                    "value": "Chile"
+                  }
+                ],
+                "types": [
+                  "route",
+                  "geocode"
+                ]
+              },
+              {
+                "description": "Vicuña Mackenna, Penaflor, Peñaflor, Chile",
+                "matched_substrings": [
+                  {
+                    "length": 15,
+                    "offset": 0
+                  }
+                ],
+                "place_id": "EixWaWN1w7FhIE1hY2tlbm5hLCBQZW5hZmxvciwgUGXDsWFmbG9yLCBDaGlsZSIuKiwKFAoSCe8Nr0HL5mKWERaboWTYqQxKEhQKEglhlkWareZilhECWo1TRqjM5A",
+                "reference": "EixWaWN1w7FhIE1hY2tlbm5hLCBQZW5hZmxvciwgUGXDsWFmbG9yLCBDaGlsZSIuKiwKFAoSCe8Nr0HL5mKWERaboWTYqQxKEhQKEglhlkWareZilhECWo1TRqjM5A",
+                "structured_formatting": {
+                  "main_text": "Vicuña Mackenna",
+                  "main_text_matched_substrings": [
+                    {
+                      "length": 15,
+                      "offset": 0
+                    }
+                  ],
+                  "secondary_text": "Penaflor, Peñaflor, Chile"
+                },
+                "terms": [
+                  {
+                    "offset": 0,
+                    "value": "Vicuña Mackenna"
+                  },
+                  {
+                    "offset": 17,
+                    "value": "Penaflor"
+                  },
+                  {
+                    "offset": 27,
+                    "value": "Peñaflor"
+                  },
+                  {
+                    "offset": 37,
+                    "value": "Chile"
+                  }
+                ],
+                "types": [
+                  "route",
+                  "geocode"
+                ]
+              }
+            ],
+            "status": "OK"
+          }
+        ]
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }               
+                           
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  []
+                                              ]
+                                          }
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },    
+        
+        "/api/geo/getMapaEstatico":{
+          "get": {
+            "description": "Obtener mapa de dirección",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "query",
+                "description": "Id de la dirección que retorna google maps",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "ChIJMxlTVUXFYpYRt_13vGybUgk&size=300x280"
+                }
+              },
+              {
+                "name":"size",
+                "in": "query",
+                "description": "Medidas del mapa (Ancho por Alto)",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "300x280"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Mapa",
+                   "content": {
+                    "image/png": {}
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  []
+                                              ]
+                                          }
+                               },
+                               "status": {
+                                 "type": "integer",
+                                 "example": 500
+                               },
+                               "mensaje": {
+                                 "type": "string",
+                                 "example": "Se ha producido un error"
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },    
+          "/api/geo/getLatLng/":{
+          "get": {
+            "description": "Obtener latitud y longitud de una dirección",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "query",
+                "description": "Id de la dirección que retorna google maps",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "EiJDYWxsZSBJdGFsaWEsIEFsdG8gSG9zcGljaW8sIENoaWxlIi4qLAoUChIJoXZHSNEUUpERWpjOTdxBtwASFAoSCTNWPClwPlKREWBWL2M59x9n"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Latitud y Longitud",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                             "content": {
+                              "type": "object",
+                              "example": 
+                    [
+                      {
+                        "html_attributions": [],
+                        "result": {
+                          "geometry": {
+                            "location": {
+                              "lat": -20.2943484,
+                              "lng": -70.1034744
+                            },
+                            "viewport": {
+                              "northeast": {
+                                "lat": -20.29299941970849,
+                                "lng": -70.10212541970849
+                              },
+                              "southwest": {
+                                "lat": -20.2956973802915,
+                                "lng": -70.10482338029149
+                              }
+                            }
+                          }
+                        },
+                        "status": "OK"
+                      }
+                    ]
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }               
+                           
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  []
+                                              ]
+                                          }
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        },    
+        "/api/geo/getDireccion/":{
+          "get": {
+            "description": "Obtener dirección de una latitud y longitud",
+            "parameters": [
+              {
+                "name": "lat",
+                "in": "query",
+                "description": "Latitud",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "26.517110"
+                }
+              },
+              {
+                "name": "lng",
+                "in": "query",
+                "description": "Longitud",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "-100.194730"
+                }
+              }    
+            ],
+            "responses": {
+              "200": {
+                "description": "Dirección",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                        "type": "object",
+                          "properties": {
+                             "content": {
+                              "type": "object",
+                              "example": 
+                    [
+                        {
+                          "plus_code": {
+                            "compound_code": "GR84+R4 Sabinas Hidalgo, Nuevo Leon, Mexico",
+                            "global_code": "75RXGR84+R4"
+                          },
+                          "results": [
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "701",
+                                  "short_name": "701",
+                                  "types": [
+                                    "street_number"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Paraguay",
+                                  "short_name": "Paraguay",
+                                  "types": [
+                                    "route"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Plaza Mirador 3 Sector",
+                                  "short_name": "Plaza Mirador 3 Sector",
+                                  "types": [
+                                    "political",
+                                    "sublocality",
+                                    "sublocality_level_1"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "locality",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo León",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "65230",
+                                  "short_name": "65230",
+                                  "types": [
+                                    "postal_code"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Paraguay 701, Plaza Mirador 3 Sector, 65230 Sabinas Hidalgo, N.L., Mexico",
+                              "geometry": {
+                                "location": {
+                                  "lat": 26.517241,
+                                  "lng": -100.1948774
+                                },
+                                "location_type": "ROOFTOP",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.5185899802915,
+                                    "lng": -100.1935284197085
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5158920197085,
+                                    "lng": -100.1962263802915
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJ_3Pw5Zg-YoYRLBAqvaOqFxc",
+                              "plus_code": {
+                                "compound_code": "GR84+V2 Sabinas Hidalgo, Nuevo Leon, Mexico",
+                                "global_code": "75RXGR84+V2"
+                              },
+                              "types": [
+                                "street_address"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "122",
+                                  "short_name": "122",
+                                  "types": [
+                                    "street_number"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Chile",
+                                  "short_name": "Chile",
+                                  "types": [
+                                    "route"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "political",
+                                    "sublocality",
+                                    "sublocality_level_1"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "locality",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo León",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "65230",
+                                  "short_name": "65230",
+                                  "types": [
+                                    "postal_code"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Chile 122, Sabinas Hidalgo, 65230 Sabinas Hidalgo, N.L., Mexico",
+                              "geometry": {
+                                "location": {
+                                  "lat": 26.5171165,
+                                  "lng": -100.1946699
+                                },
+                                "location_type": "RANGE_INTERPOLATED",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.51846548029151,
+                                    "lng": -100.1933209197085
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5157675197085,
+                                    "lng": -100.1960188802915
+                                  }
+                                }
+                              },
+                              "place_id": "Ej9DaGlsZSAxMjIsIFNhYmluYXMgSGlkYWxnbywgNjUyMzAgU2FiaW5hcyBIaWRhbGdvLCBOLkwuLCBNZXhpY28iGhIYChQKEgn5SiHumD5ihhEjFIMGqzW7GhB6",
+                              "types": [
+                                "street_address"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "727",
+                                  "short_name": "727",
+                                  "types": [
+                                    "street_number"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Paraguay",
+                                  "short_name": "Paraguay",
+                                  "types": [
+                                    "route"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Plaza Mirador 3 Sector",
+                                  "short_name": "Plaza Mirador 3 Sector",
+                                  "types": [
+                                    "political",
+                                    "sublocality",
+                                    "sublocality_level_1"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "locality",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo León",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "65230",
+                                  "short_name": "65230",
+                                  "types": [
+                                    "postal_code"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Paraguay 727, Plaza Mirador 3 Sector, 65230 Sabinas Hidalgo, N.L., Mexico",
+                              "geometry": {
+                                "location": {
+                                  "lat": 26.5169967,
+                                  "lng": -100.1959044
+                                },
+                                "location_type": "ROOFTOP",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.5183456802915,
+                                    "lng": -100.1945554197085
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5156477197085,
+                                    "lng": -100.1972533802915
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJN1evLUQ_YoYRmQvGBjLX5vM",
+                              "plus_code": {
+                                "compound_code": "GR83+QJ Sabinas Hidalgo, Nuevo Leon, Mexico",
+                                "global_code": "75RXGR83+QJ"
+                              },
+                              "types": [
+                                "establishment",
+                                "point_of_interest"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "Chile",
+                                  "short_name": "Chile",
+                                  "types": [
+                                    "route"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "political",
+                                    "sublocality",
+                                    "sublocality_level_1"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "locality",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo León",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "65230",
+                                  "short_name": "65230",
+                                  "types": [
+                                    "postal_code"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Chile, Sabinas Hidalgo, 65230 Sabinas Hidalgo, N.L., Mexico",
+                              "geometry": {
+                                "bounds": {
+                                  "northeast": {
+                                    "lat": 26.5172198,
+                                    "lng": -100.1945823
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5167185,
+                                    "lng": -100.1946926
+                                  }
+                                },
+                                "location": {
+                                  "lat": 26.5169692,
+                                  "lng": -100.1946374
+                                },
+                                "location_type": "GEOMETRIC_CENTER",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.5183181302915,
+                                    "lng": -100.1932884697085
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5156201697085,
+                                    "lng": -100.1959864302915
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJ-Uoh7pg-YoYRIhSDBqs1uxo",
+                              "types": [
+                                "route"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "Plaza Mirador 3 Sector",
+                                  "short_name": "Plaza Mirador 3 Sector",
+                                  "types": [
+                                    "political",
+                                    "sublocality",
+                                    "sublocality_level_1"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "locality",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo León",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "65230",
+                                  "short_name": "65230",
+                                  "types": [
+                                    "postal_code"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Plaza Mirador 3 Sector, 65230 Sabinas Hidalgo, N.L., Mexico",
+                              "geometry": {
+                                "bounds": {
+                                  "northeast": {
+                                    "lat": 26.5177513,
+                                    "lng": -100.1938544
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5132386,
+                                    "lng": -100.1980648
+                                  }
+                                },
+                                "location": {
+                                  "lat": 26.515367,
+                                  "lng": -100.1962415
+                                },
+                                "location_type": "APPROXIMATE",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.5177513,
+                                    "lng": -100.1938544
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5132386,
+                                    "lng": -100.1980648
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJA00Trpk-YoYRM4kOMkvclCw",
+                              "types": [
+                                "political",
+                                "sublocality",
+                                "sublocality_level_1"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "65230",
+                                  "short_name": "65230",
+                                  "types": [
+                                    "postal_code"
+                                  ]
+                                },
+                                {
+                                  "long_name": "El Mirador",
+                                  "short_name": "El Mirador",
+                                  "types": [
+                                    "political",
+                                    "sublocality",
+                                    "sublocality_level_1"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "locality",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo León",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "El Mirador, 65230 Sabinas Hidalgo, N.L., Mexico",
+                              "geometry": {
+                                "bounds": {
+                                  "northeast": {
+                                    "lat": 26.5181715,
+                                    "lng": -100.1845436
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5067611,
+                                    "lng": -100.2191682
+                                  }
+                                },
+                                "location": {
+                                  "lat": 26.5091559,
+                                  "lng": -100.1913379
+                                },
+                                "location_type": "APPROXIMATE",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.5181715,
+                                    "lng": -100.1845436
+                                  },
+                                  "southwest": {
+                                    "lat": 26.5067611,
+                                    "lng": -100.2191682
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJvVNYd5A-YoYRUZdA9kt9vk8",
+                              "postcode_localities": [
+                                "Alfonso Martínez Domínguez",
+                                "El Mirador",
+                                "Plaza Mirador 3 Sector",
+                                "Real Las Palmas",
+                                "Valle del Sol"
+                              ],
+                              "types": [
+                                "postal_code"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "locality",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo Leon",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Sabinas Hidalgo, Nuevo Leon, Mexico",
+                              "geometry": {
+                                "bounds": {
+                                  "northeast": {
+                                    "lat": 26.5492543,
+                                    "lng": -100.1333807
+                                  },
+                                  "southwest": {
+                                    "lat": 26.4654501,
+                                    "lng": -100.2248747
+                                  }
+                                },
+                                "location": {
+                                  "lat": 26.5088029,
+                                  "lng": -100.1759285
+                                },
+                                "location_type": "APPROXIMATE",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.5492543,
+                                    "lng": -100.1333807
+                                  },
+                                  "southwest": {
+                                    "lat": 26.4654501,
+                                    "lng": -100.2248747
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJ5XfHJAo7YoYR8I-cZ3hpAQQ",
+                              "types": [
+                                "locality",
+                                "political"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "Sabinas Hidalgo",
+                                  "short_name": "Sabinas Hidalgo",
+                                  "types": [
+                                    "administrative_area_level_2",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Nuevo León",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Sabinas Hidalgo, N.L., Mexico",
+                              "geometry": {
+                                "bounds": {
+                                  "northeast": {
+                                    "lat": 26.9129131,
+                                    "lng": -99.9212743
+                                  },
+                                  "southwest": {
+                                    "lat": 26.2388311,
+                                    "lng": -100.3660051
+                                  }
+                                },
+                                "location": {
+                                  "lat": 26.5068471,
+                                  "lng": -100.1794116
+                                },
+                                "location_type": "APPROXIMATE",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 26.9129131,
+                                    "lng": -99.9212743
+                                  },
+                                  "southwest": {
+                                    "lat": 26.2388311,
+                                    "lng": -100.3660051
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJ2_vMUdA5YoYRszYzXGrkcy8",
+                              "types": [
+                                "administrative_area_level_2",
+                                "political"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "Nuevo Leon",
+                                  "short_name": "N.L.",
+                                  "types": [
+                                    "administrative_area_level_1",
+                                    "political"
+                                  ]
+                                },
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Nuevo Leon, Mexico",
+                              "geometry": {
+                                "bounds": {
+                                  "northeast": {
+                                    "lat": 27.7991372,
+                                    "lng": -98.4215759
+                                  },
+                                  "southwest": {
+                                    "lat": 23.162683,
+                                    "lng": -101.2067627
+                                  }
+                                },
+                                "location": {
+                                  "lat": 25.592172,
+                                  "lng": -99.99619469999999
+                                },
+                                "location_type": "APPROXIMATE",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 27.7991372,
+                                    "lng": -98.4215759
+                                  },
+                                  "southwest": {
+                                    "lat": 23.162683,
+                                    "lng": -101.2067627
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJXbClooSVYoYRxrtsw0L0HXA",
+                              "types": [
+                                "administrative_area_level_1",
+                                "political"
+                              ]
+                            },
+                            {
+                              "address_components": [
+                                {
+                                  "long_name": "Mexico",
+                                  "short_name": "MX",
+                                  "types": [
+                                    "country",
+                                    "political"
+                                  ]
+                                }
+                              ],
+                              "formatted_address": "Mexico",
+                              "geometry": {
+                                "bounds": {
+                                  "northeast": {
+                                    "lat": 32.7186534,
+                                    "lng": -86.5887
+                                  },
+                                  "southwest": {
+                                    "lat": 14.3895,
+                                    "lng": -118.6523001
+                                  }
+                                },
+                                "location": {
+                                  "lat": 23.634501,
+                                  "lng": -102.552784
+                                },
+                                "location_type": "APPROXIMATE",
+                                "viewport": {
+                                  "northeast": {
+                                    "lat": 32.7186534,
+                                    "lng": -86.5887
+                                  },
+                                  "southwest": {
+                                    "lat": 14.3895,
+                                    "lng": -118.6523001
+                                  }
+                                }
+                              },
+                              "place_id": "ChIJU1NoiDs6BIQREZgJa760ZO0",
+                              "types": [
+                                "country",
+                                "political"
+                              ]
+                            }
+                          ],
+                          "status": "OK"
+                        }
+                    ]            
+                  
+                             },
+                             "mensaje": {
+                               "type": "string",
+                               "example": "Operación exitosa"
+                             }
+                          }               
+                           
+                      }
+                    }
+                  }
+              },
+              "500": {
+                "description": "Error query o conexión",
+                   "content": {
+                    "application/json": {
+                      "schema":{
+                          "type": "object",
+                            "properties": {
+                                "content": {
+                                "type": "object",
+                                "example": {
+                                              "response": [
+                                                  []
+                                              ]
+                                          }
+                               }
+                            }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        }      
+      }    
+}

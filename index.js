@@ -17,11 +17,21 @@ const autentificacion = require("./routes/autentificacion");
 const documentos = require("./routes/documentos");
 var cors = require("cors");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require('./swagger.json');
+
 const app = express();
 /**
  * En esta sección se realiza la carga de las funciones middleware de express, los middleware
  * pueden custom o build-in en express añade comentario
  */
+
+
+// SWAGGER DOCUMENTATION //
+app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// SWAGGER DOCUMENTATION //
+
+
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
