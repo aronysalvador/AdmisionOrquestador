@@ -38,7 +38,7 @@ app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   next();
 });
-*/
+ */
 
 app.use(express.json());
 app.use(morgan("dev"));
