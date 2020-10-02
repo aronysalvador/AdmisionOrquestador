@@ -16,7 +16,7 @@ const admisionista = require("./routes/admisionista");
 const autentificacion = require("./routes/autentificacion");
 const documentos = require("./routes/documentos");
 const datosFirma = require("./routes/datosFirma");
-var cors = require("cors");
+//var cors = require("cors");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require('./swagger.json');
@@ -32,10 +32,17 @@ const app = express();
 app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // SWAGGER DOCUMENTATION //
 
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  next();
+});
+
 
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(cors());
+//app.use(cors());
 app.use("/api/sap", sap);
 app.use("/api/geo", geo);
 app.use("/api/bd", bd);
