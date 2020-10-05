@@ -34,5 +34,14 @@
     };
   };
 
-  module.exports = { getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode };
+  const updateEstadoDocumento = (datos) => {
+    return {
+      url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/firmadigital/updateEstado?codigo=${datos.codigo}&estado=${datos.estado}`,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    };
+  };
+
+  module.exports = { getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode, updateEstadoDocumento };
   
