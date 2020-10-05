@@ -1,6 +1,6 @@
 const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
-const getAliasSapByEmail = require("../Request/admisionista");
+const {getAliasSapByEmail, getEmailBySiniestro} = require("../Request/admisionista");
 const get = require("../Utils/ApiUtil/http");
 
 const route = new Router();
