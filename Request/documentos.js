@@ -9,7 +9,7 @@
 
   const saveDocuments = () => {
     return {
-      url: `http://localhost:8080/api/firmadigital/insertDocumento`,
+      url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/firmadigital/insertDocumento`,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -18,7 +18,7 @@
 
   const getDocumentosbyAdmisionista = (correo) => {
     return {
-      url: `http://localhost:8080/api/firmadigital/getDocumentosbyAdmisionista/?correo=${correo}`,
+      url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/firmadigital/getDocumentosbyAdmisionista/?correo=${correo}`,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -27,7 +27,7 @@
 
   const getDocumentobyCode = (codigo) => {
     return {
-      url: `http://localhost:8080/api/firmadigital/getDocumento/?codigo=${codigo}`,
+      url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/firmadigital/getDocumento/?codigo=${codigo}`,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
