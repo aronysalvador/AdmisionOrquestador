@@ -4,6 +4,9 @@ const getCodigos = require("../Request/codigos");
 const getDocumentos = require("../Request/documentos");
 const get = require("../Utils/ApiUtil/http");
 const apiObjectResponse = require("../Utils/ApiUtil/apiResponseObjectReducer");
+const firmarDocumentos = require("../Request/firmarDocumentos");
+const post = require("../Utils/ApiUtil/httpPost");
+const guardaDocSAP = require("../Request/guardaDocSAP");
 const route = new Router();
 
 //Metodo utilizado por la api antigua de firma digital, para pruebas de egreso
@@ -15,6 +18,24 @@ route.get("/MostrarDocumento", async (req, res) => {
     
   } catch (error) {
     res.send(apiResponse([], 500,error));
+  }
+});
+
+route.post("/FirmarDocumentos", async (req, res) => {
+  try{
+    const result = await post(firmarDocumentos(), req.body);
+    res.send(result);
+  }catch(error){
+    res.send(apiResponse([], 500, error));
+  }
+});
+
+route.post("/GuardarEnSAP",async (req, res) => {
+  try{
+    const result = await post(guardaDocSAP(), req.body);
+    res.send(result);
+  }catch(error){
+    res.send(apiResponse([], 500, error));
   }
 });
 
