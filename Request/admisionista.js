@@ -9,7 +9,7 @@ const getAliasSapByEmail = (email) => {
 
 const getEmailBySiniestro = (siniestro) => {
   return {
-    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/usuarioSAP/getMailBySiniestro?siniestro=${siniestro}`,
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/admisiondigital/getMailAdmisionistaBySiniestro?siniestro=${siniestro}`,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
