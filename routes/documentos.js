@@ -70,7 +70,7 @@ route.get("/infoDocumento", async (req, res) => {
   }
 });
 
-route.get("//updateEstado", async (req, res) => {
+route.get("/updateEstado", async (req, res) => {
   try {
     const result = await get(updateEstadoDocumento(req.query))
     res.send(result);
