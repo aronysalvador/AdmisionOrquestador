@@ -1,7 +1,7 @@
 const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getCodigos = require("../Request/codigos");
-const getDocumentos = require("../Request/documentos");
+const {getDocumentos, saveDocuments} = require("../Request/documentos");
 const get = require("../Utils/ApiUtil/http");
 const apiObjectResponse = require("../Utils/ApiUtil/apiResponseObjectReducer");
 const firmarDocumentos = require("../Request/firmarDocumentos");
@@ -33,6 +33,15 @@ route.post("/FirmarDocumentos", async (req, res) => {
 route.post("/GuardarEnSAP",async (req, res) => {
   try{
     const result = await post(guardaDocSAP(), req.body);
+    res.send(result);
+  }catch(error){
+    res.send(apiResponse([], 500, error));
+  }
+});
+
+route.post("/insert",async (req, res) => {
+  try{
+    const result = await post(saveDocuments(), req.body);
     res.send(result);
   }catch(error){
     res.send(apiResponse([], 500, error));
