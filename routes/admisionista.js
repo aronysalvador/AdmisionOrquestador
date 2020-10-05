@@ -16,4 +16,14 @@ route.get("/getAliasSapByEmail", async (req, res) => {
   }
 });
 
+route.get("/getMailBySiniestro", async (req, res) => {
+  try {
+    await get(getEmailBySiniestro(req.query.siniestro)).then((data) => {
+      res.send(data);
+    });
+  } catch (error) {
+    res.send(apiResponse({}, 500, "Error"));
+  }
+});
+
 module.exports = route;
