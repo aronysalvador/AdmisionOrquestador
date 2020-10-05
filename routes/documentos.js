@@ -1,7 +1,7 @@
 const Router = require("express-promise-router");
 const apiResponse = require("../Utils/ApiUtil/apiResponseReducer");
 const getCodigos = require("../Request/codigos");
-const {getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode } = require("../Request/documentos");
+const {getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode, updateEstadoDocumento } = require("../Request/documentos");
 const get = require("../Utils/ApiUtil/http");
 const apiObjectResponse = require("../Utils/ApiUtil/apiResponseObjectReducer");
 const firmarDocumentos = require("../Request/firmarDocumentos");
@@ -63,6 +63,16 @@ route.get("/infoDocumento", async (req, res) => {
   try {
     const {codigo} = req.query
     const result = await get(getDocumentobyCode(codigo))
+    res.send(result);
+    
+  } catch (error) {
+    res.send(apiResponse([], 500,error));
+  }
+});
+
+route.get("/updateEstado", async (req, res) => {
+  try {
+    const result = await get(updateEstadoDocumento(req.query))
     res.send(result);
     
   } catch (error) {
