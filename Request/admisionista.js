@@ -6,4 +6,14 @@ const getAliasSapByEmail = (email) => {
     },
   };
 };
-module.exports = getAliasSapByEmail;
+
+const getEmailBySiniestro = (siniestro) => {
+  return {
+    url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/admisionista/getMailAdmisionistaBySiniestro?siniestro=${siniestro}`,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  };
+};
+
+module.exports = {getAliasSapByEmail, getEmailBySiniestro};
