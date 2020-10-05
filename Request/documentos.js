@@ -1,5 +1,4 @@
-const getDocumentos = (codigo) => {
-  console.log(codigo)
+  const getDocumentos = (codigo) => {
     return {
       url: `${process.env.URL_MICROSERVICIO_FIRMA}/api/admision/MostrarDocumento/?codigoGenerado=${codigo}`,
       headers: {
@@ -17,5 +16,23 @@ const getDocumentos = (codigo) => {
     };
   };
 
-  module.exports = { getDocumentos, saveDocuments };
+  const getDocumentosbyAdmisionista = (correo) => {
+    return {
+      url: `http://localhost:8080/api/firmadigital/getDocumentosbyAdmisionista/?correo=${correo}`,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    };
+  };
+
+  const getDocumentobyCode = (codigo) => {
+    return {
+      url: `http://localhost:8080/api/firmadigital/getDocumento/?codigo=${codigo}`,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    };
+  };
+
+  module.exports = { getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode };
   
