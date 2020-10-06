@@ -43,5 +43,14 @@
     };
   };
 
-  module.exports = { getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode, updateEstadoDocumento };
+  const getSiniestrobyId = (id) => {
+    return {
+      url: `${process.env.URL_MICROSERVICIO_DATABASE}/api/firmadigital/getSiniestro?id=${id}`,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    };
+  };
+
+  module.exports = { getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode, updateEstadoDocumento, getSiniestrobyId };
   
