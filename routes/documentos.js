@@ -23,8 +23,8 @@ route.get("/MostrarDocumento", async (req, res) => {
 
 route.post("/FirmarDocumentos", async (req, res) => {
   try{
-    const result = await post(apiResponse(firmarDocumentos(), 200,  req.body));
-    res.send(result);
+    const result = await post(firmarDocumentos(),  req.body);
+    res.send(apiResponse(result, 200));
   }catch(error){
     res.send(apiResponse([], 500, error));
   }
