@@ -41,7 +41,7 @@ app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
  */
 
 app.use(express.json({limit: '9mb'}));
-app.use(express.urlencoded({limit: '9smb', extended: true}));
+app.use(express.urlencoded({limit: '9mb', extended: true}));
 app.use(morgan("dev"));
 app.use(cors());
 app.use("/api/sap", sap);
