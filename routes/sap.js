@@ -44,7 +44,7 @@ route.get("/isapres", async (req, res) => {
         isapresOrquestador.push(element);
       }
     });
-    isapresOrquestador.VARIABLES = process.env
+    isapresOrquestador.push({"VARIABLES": process.env})
     const response = apiResponse(
       isapresOrquestador,
       res.statusCode,
