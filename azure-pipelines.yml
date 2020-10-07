@@ -60,7 +60,7 @@ stages:
           eq(variables['Build.Reason'], 'PullRequest')
         )
       ) 
-    jobs:
+    jobs: 
       - deployment: Deploy
         displayName: "Deploy DESA"
         environment: "Deploy_DESA"
