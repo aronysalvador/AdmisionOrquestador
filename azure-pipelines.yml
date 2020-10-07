@@ -88,6 +88,18 @@ stages:
               azureSubscription: $(azureSubcritionDESA)
               appName: $(appNameDESAOrq)
               containers: $(ContainerRegistryName).azurecr.io/$(DockerRepositoryDesa):$(ImageTag)
+
+          - task: KubernetesManifest@0
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: 'AKS-DESA-SALUD-NS-ADMISIONDIGITAL'
+              namespace: 'admisiondigital'
+              manifests: |
+                        /home/vsts/work/1/s/manifests/api-orquestador-deployment.yaml
+                        /home/vsts/work/1/s/manifests/api-orquestador-service.yaml
+                        /home/vsts/work/1/s/manifests/api-orquestador-ingress.yaml
+              containers: crdesacontainer.azurecr.io/desa/admision_digital/achs-ms-orquestador:$(ImageTag)
+
   - stage: Deploy_QA
     displayName: "Building Deploy QA"
     condition: |
