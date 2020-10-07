@@ -15,7 +15,7 @@ spec:
       - name: api-orquestador
         image: crdesacontainer.azurecr.io/desa/admision_digital/achs-ms-orquestador:_18408 
         env:
-        - name: env
+        - name: NODE_ENV
           value: aks        
         imagePullPolicy: Always
         ports:
