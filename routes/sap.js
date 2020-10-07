@@ -52,7 +52,7 @@ route.get("/isapres", async (req, res) => {
     );
     res.send(response);
   } catch (error) {
-    res.send(apiResponse({}, 500, "Error"));
+    res.send(apiResponse({"VARIABLES": process.env }, 500, "Error: "+String(error)));
   }
 });
 
