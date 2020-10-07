@@ -54,6 +54,8 @@ app.use("/api/autentificacion", autentificacion);
 app.use("/api/documentos", documentos);
 app.use("/api/datosFirma", datosFirma);
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
+
 const port = 80;
 app.listen(port, () => {
   console.log(`Listen on port ${port}`);

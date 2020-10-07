@@ -29,9 +29,13 @@ const route = new Router();
  */
 route.get("/isapres", async (req, res) => {
   try {
+    console.log("here")
     let isapresOrquestador = [];
     let isapresFromMiddleware = await get(getIsapresMiddleware());
+
+
     let isapresFromBd = await get(getIsapresDb());
+    console.log(getIsapresDb)
 
     isapresFromMiddleware.content[0].forEach((element) => {
       let isapresDiccionario = isapresFromBd.content[0].find(
@@ -52,6 +56,7 @@ route.get("/isapres", async (req, res) => {
     );
     res.send(response);
   } catch (error) {
+    console.log(error)
     res.send(apiResponse({"VARIABLES": process.env, "ERROR": error }, 500, "Error: "+String(error)));
   }
 });
