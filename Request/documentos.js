@@ -6,6 +6,15 @@
       },
     };
   };
+  
+  const showDocument = (documento) => {
+    return {
+      url: `${process.env.URL_MICROSERVICIO_FIRMA}/api/admision/MostrarDocumentoFirmado/?documento=${documento}`,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    };
+  };
 
   const saveDocuments = () => {
     return {
@@ -43,5 +52,5 @@
     };
   };
 
-  module.exports = { getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode, updateEstadoDocumento };
+  module.exports = { getDocumentos, saveDocuments, getDocumentosbyAdmisionista, getDocumentobyCode, updateEstadoDocumento, showDocument };
   
