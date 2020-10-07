@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-orquestador
+spec:
+  selector:
+    matchLabels:
+      app: api-orquestador
+  template:
+    metadata:
+      labels:
+        app: api-orquestador
+    spec:
+      containers:
+      - name: api-orquestador
+        image: crdesacontainer.azurecr.io/desa/admision_digital/achs-ms-orquestador:_18408 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests: 
+            cpu: 250m
+            memory: 64Mi
+          limits: 
+            cpu: 500m
+            memory: 512Mi
+      imagePullSecrets:
+      - name: regcred-crdesacontainer 
