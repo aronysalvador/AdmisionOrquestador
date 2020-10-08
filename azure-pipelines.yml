@@ -22,7 +22,7 @@ variables:
     value: prod/${{variables['Repository'] }} 
 
   - name: ImageTag
-    value: "_$(Build.BuildId)"
+    value: "_$(Build.BuildId)" 
 
 
 pool:
