@@ -4,7 +4,7 @@ const post = require("../Utils/ApiUtil/httpPost");
 const get = require('../Utils/ApiUtil/http')
 // const { postLog, postEndLog, handleLog } = require("../Request/logs");
 const { handleLog } = require("../Request/logs");
-const {getDataReport} = require("../Request/bd");
+const { getDataReport } = require("../Request/bd");
 
 const route = new Router();
 
